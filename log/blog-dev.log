@@ -1,0 +1,45 @@
+2020-03-12 17:56:26.101  INFO 17844 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 17844 (started by CURRY in D:\个人博客\blog)
+2020-03-12 17:56:26.107 DEBUG 17844 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-03-12 17:56:26.108  INFO 17844 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-03-12 17:56:26.605  INFO 17844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-12 17:56:26.606  INFO 17844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-12 17:56:29.813  INFO 17844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-12 17:56:29.838  INFO 17844 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-12 17:56:29.838  INFO 17844 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-03-12 17:56:29.987  INFO 17844 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-12 17:56:29.987  INFO 17844 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3378 ms
+2020-03-12 17:56:31.408  INFO 17844 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-12 17:56:31.466  INFO 17844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-12 17:56:31.468  INFO 17844 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 6.507 seconds (JVM running for 9.393)
+2020-03-12 17:56:49.249  INFO 17844 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-12 17:56:49.250  INFO 17844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-12 17:56:49.265  INFO 17844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-03-12 17:56:49.292  INFO 17844 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-12 17:56:49.313  INFO 17844 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-12 17:56:49.635  INFO 17844 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-12 17:56:49.687 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-12 17:56:49.706 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-12 17:56:49.739 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-12 17:56:49.742 DEBUG 17844 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-12 17:56:49.743 DEBUG 17844 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-12 17:56:49.756 DEBUG 17844 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-12 17:56:49.760 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-12 17:56:49.761 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-12 17:56:49.768 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-12 17:56:49.769 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-12 17:56:49.769 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-12 17:56:49.784 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-12 17:56:49.785 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-12 17:56:49.785 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-12 17:56:49.792 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-12 17:56:49.793  INFO 17844 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-12 17:56:49.793  INFO 17844 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-12 17:57:04.112 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? 
+2020-03-12 17:57:04.113 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.b.d.U.findByUsernameAndPassword      : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String)
+2020-03-12 17:57:04.115 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-03-12 17:57:05.919 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-12 17:57:05.919 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-12 17:57:05.920 DEBUG 17844 --- [http-nio-8080-exec-1] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-12 17:57:05.921 DEBUG 17844 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-12 17:57:05.921 DEBUG 17844 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-12 17:57:05.923 DEBUG 17844 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5

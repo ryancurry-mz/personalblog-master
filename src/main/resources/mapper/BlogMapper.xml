@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzr.blog.dao.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.mzr.blog.pojo.Blog">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="appreciation" jdbcType="BIT" property="appreciation" />
+    <result column="commendable" jdbcType="BIT" property="commendable" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="first_picture" jdbcType="VARCHAR" property="firstPicture" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="published" jdbcType="BIT" property="published" />
+    <result column="recommend" jdbcType="BIT" property="recommend" />
+    <result column="share_statement" jdbcType="BIT" property="shareStatement" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="views" jdbcType="INTEGER" property="views" />
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+  </resultMap>
+
+  <resultMap type="com.mzr.blog.pojo.Blog" id="WithBlogResultMap">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="appreciation" jdbcType="BIT" property="appreciation" />
+    <result column="commendable" jdbcType="BIT" property="commendable" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="first_picture" jdbcType="VARCHAR" property="firstPicture" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="published" jdbcType="BIT" property="published" />
+    <result column="recommend" jdbcType="BIT" property="recommend" />
+    <result column="share_statement" jdbcType="BIT" property="shareStatement" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="views" jdbcType="INTEGER" property="views" />
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="tag_ids" jdbcType="VARCHAR" property="tagIds" />
+    <!-- 指定联合查询出对博客信息-->
+    <association property="type" javaType="com.mzr.blog.pojo.Type">
+      <id column="id" property="id"></id>
+      <result column="name" property="name"/>
+    </association>
+    <!-- 指定联合查询出对用户信息-->
+    <association property="user" javaType="com.mzr.blog.pojo.User">
+      <id column="id" property="id"></id>
+      <result column="avatar" property="avatar"/>
+      <result column="nickname" property="nickname"/>
+      <result column="email" property="email"/>
+    </association>
+  </resultMap>
+
+  <!--类别自定义结果映射-->
+  <resultMap id="TypeWithBlogResult" type="com.mzr.blog.pojo.Blog">
+    <id property="id" column="id" />
+    <result column="appreciation" property="appreciation" />
+    <result column="commendable" property="commendable" />
+    <result column="create_time" property="createTime" />
+    <result column="description" property="description" />
+    <result column="first_picture" property="firstPicture" />
+    <result column="content" property="content" />
+    <result column="flag" property="flag" />
+    <result column="published" property="published" />
+    <result column="recommend" property="recommend" />
+    <result column="share_statement" property="shareStatement" />
+    <result column="title" property="title" />
+    <result column="update_time" property="updateTime" />
+    <result column="views" property="views" />
+    <result column="type_id" property="typeId" />
+    <result column="user_id" property="userId" />
+    <result column="tag_ids" property="tagIds" />
+    <!-- 指定联合查询出对博客信息-->
+    <association property="type" javaType="com.mzr.blog.pojo.Type">
+      <id column="id" property="id"></id>
+      <result column="name" property="name"/>
+    </association>
+    <!-- 指定联合查询出对用户信息-->
+    <association property="user" javaType="com.mzr.blog.pojo.User">
+      <id column="id" property="id"></id>
+      <result column="avatar" property="avatar"/>
+      <result column="nickname" property="nickname"/>
+      <result column="email" property="email"/>
+    </association>
+  </resultMap>
+
+  <!--标签自定义结果映射-->
+  <resultMap id="TagWithBlogResult" type="com.mzr.blog.pojo.Blog">
+    <id property="id" column="id" />
+    <result column="appreciation" property="appreciation" />
+    <result column="commendable" property="commendable" />
+    <result column="create_time" property="createTime" />
+    <result column="description" property="description" />
+    <result column="first_picture" property="firstPicture" />
+    <result column="content" property="content" />
+    <result column="flag" property="flag" />
+    <result column="published" property="published" />
+    <result column="recommend" property="recommend" />
+    <result column="share_statement" property="shareStatement" />
+    <result column="title" property="title" />
+    <result column="update_time" property="updateTime" />
+    <result column="views" property="views" />
+    <result column="type_id" property="typeId" />
+    <result column="user_id" property="userId" />
+    <result column="tag_ids" property="tagIds" />
+    <!-- 指定联合查询出对博客信息-->
+    <association property="type" javaType="com.mzr.blog.pojo.Type">
+      <id column="id" property="id"></id>
+      <result column="name" property="name"/>
+    </association>
+    <!-- 指定联合查询出对用户信息-->
+    <association property="user" javaType="com.mzr.blog.pojo.User">
+      <id column="id" property="id"></id>
+      <result column="avatar" property="avatar"/>
+      <result column="nickname" property="nickname"/>
+      <result column="email" property="email"/>
+    </association>
+    <!--多表关联-->
+    <collection property="tags" ofType="com.mzr.blog.pojo.Tag" column="id" select="com.mzr.blog.dao.TagMapper.findTagById">
+    </collection>
+  </resultMap>
+
+  <!-- sql 字段 -->
+  <sql id="WithType_Column_List">
+        t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description,
+        t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement,
+        t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name,
+        t_user.id,t_user.avatar,t_user.nickname,t_user.email
+   </sql>
+
+  <!--根据标题、分类、是否推荐 进行动态查询-->
+  <select id="findBlogByTitleOrTypeOrRecommend" resultMap="WithBlogResultMap" parameterType="com.mzr.blog.vo.BlogQuery">
+      select t_blog.*,t_type.*
+      from t_blog inner join t_type on t_blog.type_id = t_type.id
+      <if test="typeId != null and typeId != ''">
+        and type_id = #{typeId}
+      </if>
+      <where>
+        <if test="title != null and title !=''">
+          and title like concat('%',#{title,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="recommend">
+          and recommend = #{recommend}
+        </if>
+      </where>
+  </select>
+
+  <!--查找所有博客-->
+  <select id="listBlog" resultMap="WithBlogResultMap">
+    select <include refid="WithType_Column_List" />
+    from t_blog
+    left join t_type
+    on t_blog.type_id = t_type.id
+    left join t_user
+    on t_blog.user_id = t_user.id
+    order by t_blog.update_time desc
+  </select>
+
+  <!--根据标题和内容模糊查询博客-->
+  <select id="fuzzyQueryBlogByTitleOrContent" resultMap="WithBlogResultMap" parameterType="java.lang.String">
+    select <include refid="WithType_Column_List" />
+    from t_blog
+    left join t_type
+    on t_blog.type_id = t_type.id
+    left join t_user
+    on t_blog.user_id = t_user.id
+    where t_blog.title like CONCAT('%',#{query},'%') or content like CONCAT('%',#{query},'%')
+    order by t_blog.update_time desc
+  </select>
+
+  <!--根据id查询博客-->
+  <select id="getBlog" resultMap="WithBlogResultMap" parameterType="java.lang.Long">
+    select t_blog.*,t_type.*,t_user.*
+    from t_blog
+    left join t_type
+    on t_blog.type_id = t_type.id
+    left join t_user
+    on t_blog.user_id = t_user.id
+    where t_blog.id = #{id}
+  </select>
+
+  <!--根据标签查询博客-->
+  <select id="listBlogByTagId" parameterType="java.lang.Long" resultMap="TagWithBlogResult">
+    select distinct tb.*,tu.*,tp.*,tt.* from t_blog tb
+            left join t_blog_tags tbt on tb.id = tbt.blogs_id
+            left join t_tag tt on tt.id = tbt.tags_id
+            left join t_user tu on tu.id = tb.user_id
+			left join t_type tp on tp.id = tb.type_id
+            where tt.id = #{tagId}
+  </select>
+
+  <!--根据类别查询博客-->
+  <select id="listBlogByTypeId" parameterType="java.lang.Long" resultMap="TypeWithBlogResult">
+    select distinct tb.*,tu.*,tt.* from t_blog tb
+            left join t_type tt on tb.type_id = tt.id
+            left join t_user tu on tb.user_id = tu.id
+            where tt.id = #{typeId}
+  </select>
+</mapper>

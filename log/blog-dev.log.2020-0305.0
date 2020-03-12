@@ -1,0 +1,1032 @@
+2020-03-05 14:33:39.159  INFO 18192 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 18192 (started by CURRY in D:\个人博客\blog)
+2020-03-05 14:33:39.164 DEBUG 18192 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-03-05 14:33:39.165  INFO 18192 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-03-05 14:33:39.298  INFO 18192 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-05 14:33:39.299  INFO 18192 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-05 14:33:42.152  INFO 18192 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-05 14:33:42.176  INFO 18192 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-05 14:33:42.176  INFO 18192 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-03-05 14:33:42.299  INFO 18192 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-05 14:33:42.300  INFO 18192 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3001 ms
+2020-03-05 14:33:43.760  INFO 18192 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-05 14:33:43.833  INFO 18192 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-05 14:33:43.836  INFO 18192 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 6.118 seconds (JVM running for 8.802)
+2020-03-05 14:35:41.321  INFO 18192 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-05 14:35:41.322  INFO 18192 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-05 14:35:41.335  INFO 18192 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-03-05 14:35:41.389  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 14:35:41.419  INFO 18192 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-05 14:35:41.583  INFO 18192 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-05 14:35:41.643 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:35:41.664 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:35:41.740 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:35:41.743 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:35:41.743 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 14:35:41.756 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 14:35:41.759 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:35:41.759 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:35:41.766 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:35:41.767 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:35:41.767 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:35:41.780 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:35:41.782 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:35:41.783 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:35:41.799 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:35:41.801  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:35:41.801  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:36:23.759  INFO 18192 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/search/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.search', args=[1, 区别, {}]}
+2020-03-05 14:36:23.775 DEBUG 18192 --- [http-nio-8080-exec-7] d.B.fuzzyQueryBlogByTitleOrContent_COUNT : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id WHERE t_blog.title LIKE CONCAT('%', ?, '%') OR content LIKE CONCAT('%', ?, '%') 
+2020-03-05 14:36:23.776 DEBUG 18192 --- [http-nio-8080-exec-7] d.B.fuzzyQueryBlogByTitleOrContent_COUNT : ==> Parameters: 区别(String), 区别(String)
+2020-03-05 14:36:23.784 DEBUG 18192 --- [http-nio-8080-exec-7] d.B.fuzzyQueryBlogByTitleOrContent_COUNT : <==      Total: 1
+2020-03-05 14:36:23.785 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.b.d.B.fuzzyQueryBlogByTitleOrContent : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.title like CONCAT('%',?,'%') or content like CONCAT('%',?,'%') order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:36:23.786 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.b.d.B.fuzzyQueryBlogByTitleOrContent : ==> Parameters: 区别(String), 区别(String), 6(Integer)
+2020-03-05 14:36:23.793 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.b.d.B.fuzzyQueryBlogByTitleOrContent : <==      Total: 2
+2020-03-05 14:36:23.795  INFO 18192 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:36:23.796  INFO 18192 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Result : search
+2020-03-05 14:36:32.983  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[2, {}]}
+2020-03-05 14:36:32.989 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:36:32.989 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:36:32.991 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:36:32.991 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ?, ? 
+2020-03-05 14:36:32.992 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer), 6(Integer)
+2020-03-05 14:36:32.995 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 2
+2020-03-05 14:36:32.996 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:36:32.996 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:36:33.001 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:36:33.004 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:36:33.005 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:36:33.008 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:36:33.010 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:36:33.011 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:36:33.014 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:36:33.015  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:36:33.015  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:36:35.578  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-03-05 14:36:35.580 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 14:36:35.581 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-03-05 14:36:35.587 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 14:36:35.588 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog set views = views + 1 where id = ? 
+2020-03-05 14:36:35.589 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.updateViews  : ==> Parameters: 5(Long)
+2020-03-05 14:36:35.608 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-03-05 14:36:35.646 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 14:36:35.647 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-03-05 14:36:35.649 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 14:36:35.650 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 14:36:35.652 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-03-05 14:36:35.657 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 14:36:35.657  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:36:35.658  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-03-05 14:36:36.220  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/comment/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.CommentController.comments', args=[5, {}]}
+2020-03-05 14:36:36.226 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.C.CommentsByBlogIdNull           : ==>  Preparing: select * from t_comment where blog_id = ? and parent_comment_id = ? 
+2020-03-05 14:36:36.226 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.C.CommentsByBlogIdNull           : ==> Parameters: 5(Long), -1(Long)
+2020-03-05 14:36:36.238 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.C.CommentsByBlogIdNull           : <==      Total: 1
+2020-03-05 14:36:36.243 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 14:36:36.243 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 81(Long)
+2020-03-05 14:36:36.244 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 14:36:36.245  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:36:36.245  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-03-05 14:36:41.907  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.AboutController.aboutPageShow', args=[]}
+2020-03-05 14:36:41.911  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:36:41.912  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : about
+2020-03-05 14:39:10.154  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 14:39:10.158 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:39:10.158 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:39:10.163 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:39:10.164 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:39:10.165 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 14:39:10.173 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 14:39:10.175 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:39:10.175 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:39:10.178 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:39:10.180 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:39:10.180 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:39:10.185 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:39:10.186 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:39:10.186 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:39:10.192 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:39:10.192  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:10.192  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:39:12.696  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[2, {}]}
+2020-03-05 14:39:12.699 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:39:12.700 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:39:12.701 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:39:12.701 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ?, ? 
+2020-03-05 14:39:12.702 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer), 6(Integer)
+2020-03-05 14:39:12.704 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 2
+2020-03-05 14:39:12.704 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:39:12.705 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:39:12.706 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:39:12.707 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:39:12.707 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:39:12.710 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:39:12.710 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:39:12.711 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:39:12.714 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:39:12.715  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:12.715  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:39:14.142  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[2, {}]}
+2020-03-05 14:39:14.147 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:39:14.148 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:39:14.149 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:39:14.150 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ?, ? 
+2020-03-05 14:39:14.150 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer), 6(Integer)
+2020-03-05 14:39:14.152 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 2
+2020-03-05 14:39:14.153 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:39:14.153 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:39:14.155 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:39:14.155 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:39:14.156 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:39:14.160 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:39:14.161 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:39:14.163 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:39:14.166 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:39:14.167  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:14.167  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:39:15.537  INFO 18192 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 14:39:15.539 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:39:15.539 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:39:15.540 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:39:15.541 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:39:15.541 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 14:39:15.547 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 14:39:15.548 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:39:15.548 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:39:15.552 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:39:15.553 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:39:15.553 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:39:15.555 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:39:15.555 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:39:15.555 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:39:15.557 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:39:15.558  INFO 18192 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:15.558  INFO 18192 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:39:16.957  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/type/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TypeShowController.typeShow', args=[-1, -1, {}]}
+2020-03-05 14:39:16.968 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId 
+2020-03-05 14:39:16.968 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==> Parameters: 
+2020-03-05 14:39:16.971 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.BlogMapper.BlogWithType   : <==      Total: 17
+2020-03-05 14:39:16.987 DEBUG 18192 --- [http-nio-8080-exec-4] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? 
+2020-03-05 14:39:16.987 DEBUG 18192 --- [http-nio-8080-exec-4] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 1(Long)
+2020-03-05 14:39:16.990 DEBUG 18192 --- [http-nio-8080-exec-4] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 2
+2020-03-05 14:39:16.990  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:16.990  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : types
+2020-03-05 14:39:21.569  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/tag/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TagShowController.tagShow', args=[-1, -1, {}]}
+2020-03-05 14:39:21.575 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id 
+2020-03-05 14:39:21.575 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==> Parameters: 
+2020-03-05 14:39:21.577 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.BlogWithTag  : <==      Total: 23
+2020-03-05 14:39:21.578 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==>  Preparing: select distinct tb.*,tu.*,tp.*,tt.* from t_blog tb left join t_blog_tags tbt on tb.id = tbt.blogs_id left join t_tag tt on tt.id = tbt.tags_id left join t_user tu on tu.id = tb.user_id left join t_type tp on tp.id = tb.type_id where tt.id = ? 
+2020-03-05 14:39:21.578 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==> Parameters: 1(Long)
+2020-03-05 14:39:21.685 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTagById   : ====>  Preparing: select * from t_tag where id in(select tags_id from t_blog_tags WHERE blogs_id = ?) 
+2020-03-05 14:39:21.686 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTagById   : ====> Parameters: 6(Long)
+2020-03-05 14:39:21.691 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTagById   : <====      Total: 2
+2020-03-05 14:39:21.691 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlogByTagId  : <==      Total: 1
+2020-03-05 14:39:21.691  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:21.692  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Result : tags
+2020-03-05 14:39:24.633  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/archive', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.ArchiveController.archiveShow', args=[{}]}
+2020-03-05 14:39:24.639 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.blogNum      : ==>  Preparing: select COUNT(*) from t_blog 
+2020-03-05 14:39:24.639 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.blogNum      : ==> Parameters: 
+2020-03-05 14:39:24.640 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.blogNum      : <==      Total: 1
+2020-03-05 14:39:24.641 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==>  Preparing: select DATE_FORMAT(tb.update_time,'%Y') as `year` from t_blog tb GROUP BY `year` ORDER BY `year` DESC 
+2020-03-05 14:39:24.641 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==> Parameters: 
+2020-03-05 14:39:24.646 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.BlogMapper.findGroupYear  : <==      Total: 3
+2020-03-05 14:39:24.647 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 14:39:24.647 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2020(String)
+2020-03-05 14:39:24.649 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 5
+2020-03-05 14:39:24.650 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 14:39:24.650 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2019(String)
+2020-03-05 14:39:24.652 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 2
+2020-03-05 14:39:24.653 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 14:39:24.654 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2018(String)
+2020-03-05 14:39:24.657 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 1
+2020-03-05 14:39:24.657  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:24.657  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Result : archives
+2020-03-05 14:39:27.048  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-03-05 14:39:27.052 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 14:39:27.053 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-03-05 14:39:27.055 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 14:39:27.055 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog set views = views + 1 where id = ? 
+2020-03-05 14:39:27.055 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.updateViews  : ==> Parameters: 5(Long)
+2020-03-05 14:39:27.062 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-03-05 14:39:27.063 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 14:39:27.063 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-03-05 14:39:27.064 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 14:39:27.065 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 14:39:27.065 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-03-05 14:39:27.066 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 14:39:27.067  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:27.067  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-03-05 14:39:27.413  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/comment/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.CommentController.comments', args=[5, {}]}
+2020-03-05 14:39:27.414 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.C.CommentsByBlogIdNull           : ==>  Preparing: select * from t_comment where blog_id = ? and parent_comment_id = ? 
+2020-03-05 14:39:27.415 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.C.CommentsByBlogIdNull           : ==> Parameters: 5(Long), -1(Long)
+2020-03-05 14:39:27.427 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.C.CommentsByBlogIdNull           : <==      Total: 1
+2020-03-05 14:39:27.429 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 14:39:27.429 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 81(Long)
+2020-03-05 14:39:27.440 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 14:39:27.440  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:27.440  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-03-05 14:39:34.782  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/8', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[8, {}]}
+2020-03-05 14:39:34.784 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 14:39:34.784 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 8(Long)
+2020-03-05 14:39:34.786 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 14:39:34.787 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog set views = views + 1 where id = ? 
+2020-03-05 14:39:34.787 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : ==> Parameters: 8(Long)
+2020-03-05 14:39:34.792 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-03-05 14:39:34.799 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 14:39:34.799 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 22(Long)
+2020-03-05 14:39:34.800 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 14:39:34.801 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 14:39:34.801 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 23(Long)
+2020-03-05 14:39:34.802 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 14:39:34.802  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:39:34.803  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-03-05 14:40:13.539 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? 
+2020-03-05 14:40:13.539 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.U.findByUsernameAndPassword      : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String)
+2020-03-05 14:40:13.541 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-03-05 14:40:15.217 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 14:40:15.217 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 14:40:15.221 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 14:40:15.221 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 14:40:15.221 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 30(Integer)
+2020-03-05 14:40:15.223 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:40:15.231 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:40:15.231 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:40:15.232 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:40:15.232 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:40:15.233 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:40:15.235 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:40:24.591 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:40:24.592 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:40:24.593 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:40:24.595 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-03-05 14:40:24.595 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-03-05 14:40:24.599 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 23
+2020-03-05 14:40:24.601 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 14:40:24.602 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 8(Long)
+2020-03-05 14:40:24.605 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 14:40:43.823  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 14:40:43.826 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:40:43.826 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:40:43.828 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:40:43.829 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:40:43.829 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 14:40:43.835 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 14:40:43.835 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:40:43.835 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:40:43.837 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:40:43.838 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:40:43.838 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:40:43.839 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:40:43.840 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:40:43.840 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:40:43.841 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:40:43.842  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:40:43.842  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:40:48.061  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/type/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TypeShowController.typeShow', args=[-1, -1, {}]}
+2020-03-05 14:40:48.063 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId 
+2020-03-05 14:40:48.063 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==> Parameters: 
+2020-03-05 14:40:48.065 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.BlogMapper.BlogWithType   : <==      Total: 17
+2020-03-05 14:40:48.066 DEBUG 18192 --- [http-nio-8080-exec-9] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? 
+2020-03-05 14:40:48.066 DEBUG 18192 --- [http-nio-8080-exec-9] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 1(Long)
+2020-03-05 14:40:48.071 DEBUG 18192 --- [http-nio-8080-exec-9] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 2
+2020-03-05 14:40:48.071  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:40:48.071  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Result : types
+2020-03-05 14:40:50.414  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/tag/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TagShowController.tagShow', args=[-1, -1, {}]}
+2020-03-05 14:40:50.417 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id 
+2020-03-05 14:40:50.418 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==> Parameters: 
+2020-03-05 14:40:50.420 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.BlogWithTag  : <==      Total: 23
+2020-03-05 14:40:50.420 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==>  Preparing: select distinct tb.*,tu.*,tp.*,tt.* from t_blog tb left join t_blog_tags tbt on tb.id = tbt.blogs_id left join t_tag tt on tt.id = tbt.tags_id left join t_user tu on tu.id = tb.user_id left join t_type tp on tp.id = tb.type_id where tt.id = ? 
+2020-03-05 14:40:50.420 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==> Parameters: 1(Long)
+2020-03-05 14:40:50.423 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTagById   : ====>  Preparing: select * from t_tag where id in(select tags_id from t_blog_tags WHERE blogs_id = ?) 
+2020-03-05 14:40:50.423 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTagById   : ====> Parameters: 6(Long)
+2020-03-05 14:40:50.424 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTagById   : <====      Total: 2
+2020-03-05 14:40:50.425 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlogByTagId  : <==      Total: 1
+2020-03-05 14:40:50.425  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:40:50.425  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : tags
+2020-03-05 14:41:03.065  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/archive', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.ArchiveController.archiveShow', args=[{}]}
+2020-03-05 14:41:03.066 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.blogNum      : ==>  Preparing: select COUNT(*) from t_blog 
+2020-03-05 14:41:03.067 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.blogNum      : ==> Parameters: 
+2020-03-05 14:41:03.069 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.blogNum      : <==      Total: 1
+2020-03-05 14:41:03.069 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==>  Preparing: select DATE_FORMAT(tb.update_time,'%Y') as `year` from t_blog tb GROUP BY `year` ORDER BY `year` DESC 
+2020-03-05 14:41:03.069 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==> Parameters: 
+2020-03-05 14:41:03.074 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.BlogMapper.findGroupYear  : <==      Total: 3
+2020-03-05 14:41:03.074 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 14:41:03.074 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2020(String)
+2020-03-05 14:41:03.076 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 5
+2020-03-05 14:41:03.076 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 14:41:03.077 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2019(String)
+2020-03-05 14:41:03.079 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 2
+2020-03-05 14:41:03.079 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 14:41:03.080 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2018(String)
+2020-03-05 14:41:03.081 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 1
+2020-03-05 14:41:03.081  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:41:03.081  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : archives
+2020-03-05 14:41:05.232  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.AboutController.aboutPageShow', args=[]}
+2020-03-05 14:41:05.232  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:41:05.233  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : about
+2020-03-05 14:41:16.758 DEBUG 18192 --- [http-nio-8080-exec-9] .m.b.d.U.findByUsernameAndPassword_COUNT : ==>  Preparing: SELECT count(0) FROM t_user WHERE username = ? AND password = ? 
+2020-03-05 14:41:16.759 DEBUG 18192 --- [http-nio-8080-exec-9] .m.b.d.U.findByUsernameAndPassword_COUNT : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String)
+2020-03-05 14:41:16.760 DEBUG 18192 --- [http-nio-8080-exec-9] .m.b.d.U.findByUsernameAndPassword_COUNT : <==      Total: 1
+2020-03-05 14:41:16.760 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? LIMIT ? 
+2020-03-05 14:41:16.761 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.U.findByUsernameAndPassword      : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String), 30(Integer)
+2020-03-05 14:41:16.762 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-03-05 14:41:19.768  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 14:41:19.771 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:41:19.771 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:41:19.774 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:41:19.775 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:41:19.775 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 14:41:19.777 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 14:41:19.777 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 14:41:19.778 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 14:41:19.779 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 14:41:19.780 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 14:41:19.780 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 14:41:19.781 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 14:41:19.782 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 14:41:19.782 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 14:41:19.785 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 14:41:19.787  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:41:19.787  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 14:41:24.633  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/type/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TypeShowController.typeShow', args=[-1, 1, {}]}
+2020-03-05 14:41:24.636 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId 
+2020-03-05 14:41:24.637 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==> Parameters: 
+2020-03-05 14:41:24.640 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.BlogMapper.BlogWithType   : <==      Total: 17
+2020-03-05 14:41:24.641 DEBUG 18192 --- [http-nio-8080-exec-1] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? 
+2020-03-05 14:41:24.642 DEBUG 18192 --- [http-nio-8080-exec-1] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 1(Long)
+2020-03-05 14:41:24.646 DEBUG 18192 --- [http-nio-8080-exec-1] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 2
+2020-03-05 14:41:24.646  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:41:24.646  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : types
+2020-03-05 14:41:28.148  INFO 18192 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/type/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TypeShowController.typeShow', args=[-1, 1, {}]}
+2020-03-05 14:41:28.150 DEBUG 18192 --- [http-nio-8080-exec-3] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId 
+2020-03-05 14:41:28.151 DEBUG 18192 --- [http-nio-8080-exec-3] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==> Parameters: 
+2020-03-05 14:41:28.154 DEBUG 18192 --- [http-nio-8080-exec-3] c.mzr.blog.dao.BlogMapper.BlogWithType   : <==      Total: 17
+2020-03-05 14:41:28.155 DEBUG 18192 --- [http-nio-8080-exec-3] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? 
+2020-03-05 14:41:28.155 DEBUG 18192 --- [http-nio-8080-exec-3] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 1(Long)
+2020-03-05 14:41:28.157 DEBUG 18192 --- [http-nio-8080-exec-3] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 2
+2020-03-05 14:41:28.158  INFO 18192 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 14:41:28.158  INFO 18192 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Result : types
+2020-03-05 14:41:35.919 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:41:35.919 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:41:35.920 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:41:35.926 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:41:35.926 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:41:35.929 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:41:35.929 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:41:35.929 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:41:35.932 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:41:37.758 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:41:37.758 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:41:37.759 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:41:37.762 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:41:37.763 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:41:37.764 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:41:37.764 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ?, ? 
+2020-03-05 14:41:37.764 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer), 5(Integer)
+2020-03-05 14:41:37.766 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 3
+2020-03-05 14:41:39.234 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 14:41:39.234 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 14:41:39.236 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 14:41:39.237 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 14:41:39.237 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 14:41:39.238 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 14:41:40.725 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:41:40.726 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:41:40.727 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:41:40.727 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ? 
+2020-03-05 14:41:40.727 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 5(Integer)
+2020-03-05 14:41:40.729 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 14:41:42.160 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:41:42.161 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:41:42.162 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:41:42.162 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ?, ? 
+2020-03-05 14:41:42.162 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 5(Integer), 5(Integer)
+2020-03-05 14:41:42.163 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 14:41:42.830 DEBUG 18192 --- [http-nio-8080-exec-2] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:41:42.831 DEBUG 18192 --- [http-nio-8080-exec-2] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:41:42.832 DEBUG 18192 --- [http-nio-8080-exec-2] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:41:42.833 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ?, ? 
+2020-03-05 14:41:42.833 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 10(Integer), 5(Integer)
+2020-03-05 14:41:42.834 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 14:41:43.407 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:41:43.407 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:41:43.408 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:41:43.408 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ?, ? 
+2020-03-05 14:41:43.409 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 15(Integer), 5(Integer)
+2020-03-05 14:41:43.410 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 14:41:44.097 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:41:44.097 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:41:44.100 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:41:44.101 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ?, ? 
+2020-03-05 14:41:44.101 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 20(Integer), 5(Integer)
+2020-03-05 14:41:44.104 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 3
+2020-03-05 14:41:45.545 DEBUG 18192 --- [http-nio-8080-exec-3] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:41:45.546 DEBUG 18192 --- [http-nio-8080-exec-3] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:41:45.547 DEBUG 18192 --- [http-nio-8080-exec-3] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:41:45.547 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ?, ? 
+2020-03-05 14:41:45.548 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 20(Integer), 5(Integer)
+2020-03-05 14:41:45.550 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 3
+2020-03-05 14:41:48.490 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:41:48.490 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:41:48.491 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:41:48.495 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:41:48.496 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:41:48.499 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:41:48.499 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:41:48.499 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:41:48.501 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:41:51.226 DEBUG 18192 --- [http-nio-8080-exec-10] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==>  Preparing: SELECT count(0) FROM t_blog INNER JOIN t_type ON t_blog.type_id = t_type.id AND type_id = ? 
+2020-03-05 14:41:51.226 DEBUG 18192 --- [http-nio-8080-exec-10] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==> Parameters: 2(Long)
+2020-03-05 14:41:51.228 DEBUG 18192 --- [http-nio-8080-exec-10] B.findBlogByTitleOrTypeOrRecommend_COUNT : <==      Total: 1
+2020-03-05 14:41:51.228 DEBUG 18192 --- [http-nio-8080-exec-10] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? LIMIT ? 
+2020-03-05 14:41:51.228 DEBUG 18192 --- [http-nio-8080-exec-10] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 2(Long), 5(Integer)
+2020-03-05 14:41:51.230 DEBUG 18192 --- [http-nio-8080-exec-10] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 1
+2020-03-05 14:41:52.793 DEBUG 18192 --- [http-nio-8080-exec-7] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==>  Preparing: SELECT count(0) FROM t_blog INNER JOIN t_type ON t_blog.type_id = t_type.id 
+2020-03-05 14:41:52.794 DEBUG 18192 --- [http-nio-8080-exec-7] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==> Parameters: 
+2020-03-05 14:41:52.795 DEBUG 18192 --- [http-nio-8080-exec-7] B.findBlogByTitleOrTypeOrRecommend_COUNT : <==      Total: 1
+2020-03-05 14:41:52.795 DEBUG 18192 --- [http-nio-8080-exec-7] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id LIMIT ? 
+2020-03-05 14:41:52.796 DEBUG 18192 --- [http-nio-8080-exec-7] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 5(Integer)
+2020-03-05 14:41:52.798 DEBUG 18192 --- [http-nio-8080-exec-7] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 5
+2020-03-05 14:41:54.545 DEBUG 18192 --- [http-nio-8080-exec-6] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==>  Preparing: SELECT count(0) FROM t_blog INNER JOIN t_type ON t_blog.type_id = t_type.id 
+2020-03-05 14:41:54.545 DEBUG 18192 --- [http-nio-8080-exec-6] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==> Parameters: 
+2020-03-05 14:41:54.547 DEBUG 18192 --- [http-nio-8080-exec-6] B.findBlogByTitleOrTypeOrRecommend_COUNT : <==      Total: 1
+2020-03-05 14:41:54.547 DEBUG 18192 --- [http-nio-8080-exec-6] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id LIMIT ? 
+2020-03-05 14:41:54.547 DEBUG 18192 --- [http-nio-8080-exec-6] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 5(Integer)
+2020-03-05 14:41:54.549 DEBUG 18192 --- [http-nio-8080-exec-6] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 5
+2020-03-05 14:41:58.529 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:41:58.530 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:41:58.533 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:41:58.540 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:41:58.541 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:41:58.542 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:41:58.542 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:41:58.542 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:41:58.544 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:42:02.516 DEBUG 18192 --- [http-nio-8080-exec-2] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==>  Preparing: SELECT count(0) FROM t_blog INNER JOIN t_type ON t_blog.type_id = t_type.id AND type_id = ? 
+2020-03-05 14:42:02.517 DEBUG 18192 --- [http-nio-8080-exec-2] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==> Parameters: 2(Long)
+2020-03-05 14:42:02.518 DEBUG 18192 --- [http-nio-8080-exec-2] B.findBlogByTitleOrTypeOrRecommend_COUNT : <==      Total: 1
+2020-03-05 14:42:02.518 DEBUG 18192 --- [http-nio-8080-exec-2] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? LIMIT ? 
+2020-03-05 14:42:02.518 DEBUG 18192 --- [http-nio-8080-exec-2] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 2(Long), 5(Integer)
+2020-03-05 14:42:02.520 DEBUG 18192 --- [http-nio-8080-exec-2] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 1
+2020-03-05 14:42:06.839 DEBUG 18192 --- [http-nio-8080-exec-1] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==>  Preparing: SELECT count(0) FROM t_blog INNER JOIN t_type ON t_blog.type_id = t_type.id 
+2020-03-05 14:42:06.839 DEBUG 18192 --- [http-nio-8080-exec-1] B.findBlogByTitleOrTypeOrRecommend_COUNT : ==> Parameters: 
+2020-03-05 14:42:06.840 DEBUG 18192 --- [http-nio-8080-exec-1] B.findBlogByTitleOrTypeOrRecommend_COUNT : <==      Total: 1
+2020-03-05 14:42:06.841 DEBUG 18192 --- [http-nio-8080-exec-1] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id LIMIT ? 
+2020-03-05 14:42:06.841 DEBUG 18192 --- [http-nio-8080-exec-1] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 5(Integer)
+2020-03-05 14:42:06.845 DEBUG 18192 --- [http-nio-8080-exec-1] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 5
+2020-03-05 14:42:09.485 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:42:09.485 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:42:09.486 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:42:09.488 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:42:09.489 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:42:09.490 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:42:09.490 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:42:09.490 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:42:09.496 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:42:22.211 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:42:22.211 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:42:22.215 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:42:22.220 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:42:22.220 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:42:22.221 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:42:22.222 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ?, ? 
+2020-03-05 14:42:22.222 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer), 5(Integer)
+2020-03-05 14:42:22.223 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 3
+2020-03-05 14:42:23.861 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:42:23.861 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:42:23.863 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:42:23.868 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:42:23.868 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:42:23.870 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:42:23.870 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:42:23.870 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:42:23.873 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:42:25.575 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:42:25.575 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:42:25.576 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:42:25.581 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:42:25.581 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:42:25.583 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:42:25.583 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ?, ? 
+2020-03-05 14:42:25.583 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer), 5(Integer)
+2020-03-05 14:42:25.585 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 3
+2020-03-05 14:42:26.230 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:42:26.231 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:42:26.233 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:42:26.237 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:42:26.237 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:42:26.238 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:42:26.238 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:42:26.238 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:42:26.239 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:42:28.480 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 14:42:28.480 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 14:42:28.482 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 14:42:28.482 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 14:42:28.482 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 14:42:28.483 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 14:42:35.083 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:42:35.084 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:42:35.087 DEBUG 18192 --- [http-nio-8080-exec-1] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:42:35.087 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ? 
+2020-03-05 14:42:35.087 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 5(Integer)
+2020-03-05 14:42:35.088 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 14:42:41.829 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 14:42:41.829 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 1(Long)
+2020-03-05 14:42:41.831 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 14:42:45.075 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:42:45.075 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:42:45.076 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:42:45.081 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:42:45.081 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:42:45.083 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:42:45.083 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:42:45.083 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:42:45.085 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 14:42:46.885 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 14:42:46.885 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 14:42:46.886 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 14:42:46.886 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 14:42:46.886 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 14:42:46.888 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 14:42:47.947 DEBUG 18192 --- [http-nio-8080-exec-10] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 14:42:47.947 DEBUG 18192 --- [http-nio-8080-exec-10] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 14:42:47.950 DEBUG 18192 --- [http-nio-8080-exec-10] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 14:42:47.950 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ? 
+2020-03-05 14:42:47.950 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 5(Integer)
+2020-03-05 14:42:47.951 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 14:42:48.816 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 14:42:48.817 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 14:42:48.818 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 14:42:48.820 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 14:42:48.820 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 14:42:48.821 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 14:42:48.821 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 14:42:48.821 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 14:42:48.823 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 18:06:36.418  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 18:06:36.427 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 18:06:36.428 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 18:06:36.469 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 18:06:36.470 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 18:06:36.470 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 18:06:36.477 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 18:06:36.477 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 18:06:36.477 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 18:06:36.480 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 18:06:36.480 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 18:06:36.480 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 18:06:36.508 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 18:06:36.508 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 18:06:36.508 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 18:06:36.511 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 18:06:36.511  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:06:36.511  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 18:06:37.557  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/7', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[7, {}]}
+2020-03-05 18:06:37.568 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 18:06:37.569 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 7(Long)
+2020-03-05 18:06:37.570 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 18:06:37.570 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog set views = views + 1 where id = ? 
+2020-03-05 18:06:37.570 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : ==> Parameters: 7(Long)
+2020-03-05 18:06:37.577 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-03-05 18:06:37.648 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:06:37.648 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 20(Long)
+2020-03-05 18:06:37.650 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:06:37.651 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:06:37.652 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 21(Long)
+2020-03-05 18:06:37.659 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:06:37.659  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:06:37.659  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-03-05 18:06:38.292  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/comment/7', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.CommentController.comments', args=[7, {}]}
+2020-03-05 18:06:38.294 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.C.CommentsByBlogIdNull           : ==>  Preparing: select * from t_comment where blog_id = ? and parent_comment_id = ? 
+2020-03-05 18:06:38.295 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.C.CommentsByBlogIdNull           : ==> Parameters: 7(Long), -1(Long)
+2020-03-05 18:06:38.299 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.C.CommentsByBlogIdNull           : <==      Total: 0
+2020-03-05 18:06:38.299  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:06:38.299  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-03-05 18:13:21.633  INFO 18192 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/tag/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TagShowController.tagShow', args=[-1, -1, {}]}
+2020-03-05 18:13:21.661 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id 
+2020-03-05 18:13:21.661 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==> Parameters: 
+2020-03-05 18:13:21.662 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.BlogWithTag  : <==      Total: 23
+2020-03-05 18:13:21.663 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==>  Preparing: select distinct tb.*,tu.*,tp.*,tt.* from t_blog tb left join t_blog_tags tbt on tb.id = tbt.blogs_id left join t_tag tt on tt.id = tbt.tags_id left join t_user tu on tu.id = tb.user_id left join t_type tp on tp.id = tb.type_id where tt.id = ? 
+2020-03-05 18:13:21.663 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==> Parameters: 1(Long)
+2020-03-05 18:13:21.749 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTagById   : ====>  Preparing: select * from t_tag where id in(select tags_id from t_blog_tags WHERE blogs_id = ?) 
+2020-03-05 18:13:21.751 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTagById   : ====> Parameters: 6(Long)
+2020-03-05 18:13:21.755 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTagById   : <====      Total: 2
+2020-03-05 18:13:21.756 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.BlogMapper.listBlogByTagId  : <==      Total: 1
+2020-03-05 18:13:21.756  INFO 18192 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:13:21.756  INFO 18192 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Result : tags
+2020-03-05 18:14:19.221  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/type/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TypeShowController.typeShow', args=[-1, -1, {}]}
+2020-03-05 18:14:19.224 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId 
+2020-03-05 18:14:19.225 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==> Parameters: 
+2020-03-05 18:14:19.226 DEBUG 18192 --- [http-nio-8080-exec-9] c.mzr.blog.dao.BlogMapper.BlogWithType   : <==      Total: 17
+2020-03-05 18:14:19.227 DEBUG 18192 --- [http-nio-8080-exec-9] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? 
+2020-03-05 18:14:19.227 DEBUG 18192 --- [http-nio-8080-exec-9] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 1(Long)
+2020-03-05 18:14:19.228 DEBUG 18192 --- [http-nio-8080-exec-9] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 2
+2020-03-05 18:14:19.228  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:14:19.228  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Result : types
+2020-03-05 18:16:40.888  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/archive', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.ArchiveController.archiveShow', args=[{}]}
+2020-03-05 18:16:40.894 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.blogNum      : ==>  Preparing: select COUNT(*) from t_blog 
+2020-03-05 18:16:40.894 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.blogNum      : ==> Parameters: 
+2020-03-05 18:16:40.895 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.blogNum      : <==      Total: 1
+2020-03-05 18:16:40.895 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==>  Preparing: select DATE_FORMAT(tb.update_time,'%Y') as `year` from t_blog tb GROUP BY `year` ORDER BY `year` DESC 
+2020-03-05 18:16:40.895 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==> Parameters: 
+2020-03-05 18:16:40.900 DEBUG 18192 --- [http-nio-8080-exec-4] c.mzr.blog.dao.BlogMapper.findGroupYear  : <==      Total: 3
+2020-03-05 18:16:40.900 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 18:16:40.901 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2020(String)
+2020-03-05 18:16:40.904 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 5
+2020-03-05 18:16:40.904 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 18:16:40.904 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2019(String)
+2020-03-05 18:16:40.905 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 2
+2020-03-05 18:16:40.905 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 18:16:40.905 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2018(String)
+2020-03-05 18:16:40.906 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 1
+2020-03-05 18:16:40.906  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:16:40.906  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : archives
+2020-03-05 18:17:19.461  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[1, {}]}
+2020-03-05 18:17:19.462 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 18:17:19.462 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 1(Long)
+2020-03-05 18:17:19.463 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 18:17:19.464 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog set views = views + 1 where id = ? 
+2020-03-05 18:17:19.464 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.updateViews  : ==> Parameters: 1(Long)
+2020-03-05 18:17:19.468 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-03-05 18:17:19.589 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:17:19.589 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-03-05 18:17:19.598 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:17:19.598 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:17:19.599 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 7(Long)
+2020-03-05 18:17:19.599 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:17:19.599  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:17:19.599  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-03-05 18:17:20.191  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/comment/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.CommentController.comments', args=[1, {}]}
+2020-03-05 18:17:20.209 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.d.C.CommentsByBlogIdNull           : ==>  Preparing: select * from t_comment where blog_id = ? and parent_comment_id = ? 
+2020-03-05 18:17:20.210 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.d.C.CommentsByBlogIdNull           : ==> Parameters: 1(Long), -1(Long)
+2020-03-05 18:17:20.217 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.d.C.CommentsByBlogIdNull           : <==      Total: 3
+2020-03-05 18:17:20.217 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:17:20.217 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 83(Long)
+2020-03-05 18:17:20.219 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 18:17:20.219 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:17:20.219 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 84(Long)
+2020-03-05 18:17:20.225 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 1
+2020-03-05 18:17:20.226 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:17:20.226 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 86(Long)
+2020-03-05 18:17:20.259 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 18:17:20.259 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.d.CommentMapper.findParentComment  : ==>  Preparing: select * from t_comment where parent_comment_id = ? and id = ? 
+2020-03-05 18:17:20.260 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.d.CommentMapper.findParentComment  : ==> Parameters: -1(Long), 84(Long)
+2020-03-05 18:17:20.296 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.d.CommentMapper.findParentComment  : <==      Total: 1
+2020-03-05 18:17:20.297 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:17:20.297 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 85(Long)
+2020-03-05 18:17:20.321 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 18:17:20.322  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:17:20.322  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-03-05 18:37:08.065  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 18:37:08.067 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 18:37:08.067 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 18:37:08.095 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 18:37:08.095 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 18:37:08.095 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 18:37:08.114 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 18:37:08.115 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 18:37:08.115 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 18:37:08.121 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 18:37:08.121 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 18:37:08.122 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 18:37:08.124 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 18:37:08.125 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 18:37:08.125 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 18:37:08.126 DEBUG 18192 --- [http-nio-8080-exec-9] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 18:37:08.126  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:37:08.126  INFO 18192 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 18:37:22.986  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 18:37:22.995 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 18:37:22.995 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 18:37:22.998 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 18:37:22.998 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 18:37:22.998 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 18:37:23.005 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 18:37:23.006 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 18:37:23.006 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 18:37:23.017 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 18:37:23.017 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 18:37:23.017 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 18:37:23.020 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 18:37:23.020 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 18:37:23.020 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 18:37:23.022 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 18:37:23.022  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:37:23.022  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 18:39:24.103  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/type/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TypeShowController.typeShow', args=[-1, -1, {}]}
+2020-03-05 18:39:24.104 DEBUG 18192 --- [http-nio-8080-exec-8] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId 
+2020-03-05 18:39:24.104 DEBUG 18192 --- [http-nio-8080-exec-8] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==> Parameters: 
+2020-03-05 18:39:24.105 DEBUG 18192 --- [http-nio-8080-exec-8] c.mzr.blog.dao.BlogMapper.BlogWithType   : <==      Total: 17
+2020-03-05 18:39:24.106 DEBUG 18192 --- [http-nio-8080-exec-8] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? 
+2020-03-05 18:39:24.107 DEBUG 18192 --- [http-nio-8080-exec-8] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 1(Long)
+2020-03-05 18:39:24.116 DEBUG 18192 --- [http-nio-8080-exec-8] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 2
+2020-03-05 18:39:24.116  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:39:24.116  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Result : types
+2020-03-05 18:39:52.098  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/tag/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TagShowController.tagShow', args=[-1, -1, {}]}
+2020-03-05 18:39:52.133 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id 
+2020-03-05 18:39:52.133 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.BlogWithTag  : ==> Parameters: 
+2020-03-05 18:39:52.175 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.BlogWithTag  : <==      Total: 23
+2020-03-05 18:39:52.176 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==>  Preparing: select distinct tb.*,tu.*,tp.*,tt.* from t_blog tb left join t_blog_tags tbt on tb.id = tbt.blogs_id left join t_tag tt on tt.id = tbt.tags_id left join t_user tu on tu.id = tb.user_id left join t_type tp on tp.id = tb.type_id where tt.id = ? 
+2020-03-05 18:39:52.176 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlogByTagId  : ==> Parameters: 1(Long)
+2020-03-05 18:39:52.236 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTagById   : ====>  Preparing: select * from t_tag where id in(select tags_id from t_blog_tags WHERE blogs_id = ?) 
+2020-03-05 18:39:52.236 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTagById   : ====> Parameters: 6(Long)
+2020-03-05 18:39:52.288 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTagById   : <====      Total: 2
+2020-03-05 18:39:52.288 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.blog.dao.BlogMapper.listBlogByTagId  : <==      Total: 1
+2020-03-05 18:39:52.288  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:39:52.288  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Result : tags
+2020-03-05 18:40:35.182  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/archive', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.ArchiveController.archiveShow', args=[{}]}
+2020-03-05 18:40:35.185 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.blogNum      : ==>  Preparing: select COUNT(*) from t_blog 
+2020-03-05 18:40:35.185 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.blogNum      : ==> Parameters: 
+2020-03-05 18:40:35.186 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.blogNum      : <==      Total: 1
+2020-03-05 18:40:35.186 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==>  Preparing: select DATE_FORMAT(tb.update_time,'%Y') as `year` from t_blog tb GROUP BY `year` ORDER BY `year` DESC 
+2020-03-05 18:40:35.186 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.BlogMapper.findGroupYear  : ==> Parameters: 
+2020-03-05 18:40:35.192 DEBUG 18192 --- [http-nio-8080-exec-6] c.mzr.blog.dao.BlogMapper.findGroupYear  : <==      Total: 3
+2020-03-05 18:40:35.192 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 18:40:35.192 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2020(String)
+2020-03-05 18:40:35.194 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 5
+2020-03-05 18:40:35.194 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 18:40:35.194 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2019(String)
+2020-03-05 18:40:35.195 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 2
+2020-03-05 18:40:35.195 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==>  Preparing: select * from t_blog tb where DATE_FORMAT(tb.update_time,'%Y') = ? 
+2020-03-05 18:40:35.196 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : ==> Parameters: 2018(String)
+2020-03-05 18:40:35.196 DEBUG 18192 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.findBlogByYear   : <==      Total: 1
+2020-03-05 18:40:35.197  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:40:35.197  INFO 18192 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Result : archives
+2020-03-05 18:41:15.718  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/type/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.TypeShowController.typeShow', args=[-1, -1, {}]}
+2020-03-05 18:41:15.722 DEBUG 18192 --- [http-nio-8080-exec-2] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId 
+2020-03-05 18:41:15.723 DEBUG 18192 --- [http-nio-8080-exec-2] c.mzr.blog.dao.BlogMapper.BlogWithType   : ==> Parameters: 
+2020-03-05 18:41:15.724 DEBUG 18192 --- [http-nio-8080-exec-2] c.mzr.blog.dao.BlogMapper.BlogWithType   : <==      Total: 17
+2020-03-05 18:41:15.725 DEBUG 18192 --- [http-nio-8080-exec-2] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==>  Preparing: select t_blog.*,t_type.* from t_blog inner join t_type on t_blog.type_id = t_type.id and type_id = ? 
+2020-03-05 18:41:15.725 DEBUG 18192 --- [http-nio-8080-exec-2] m.b.d.B.findBlogByTitleOrTypeOrRecommend : ==> Parameters: 1(Long)
+2020-03-05 18:41:15.726 DEBUG 18192 --- [http-nio-8080-exec-2] m.b.d.B.findBlogByTitleOrTypeOrRecommend : <==      Total: 2
+2020-03-05 18:41:15.726  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:41:15.726  INFO 18192 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : types
+2020-03-05 18:41:17.739  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-03-05 18:41:17.740 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 18:41:17.741 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-03-05 18:41:17.742 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 18:41:17.742 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog set views = views + 1 where id = ? 
+2020-03-05 18:41:17.742 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : ==> Parameters: 5(Long)
+2020-03-05 18:41:17.748 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-03-05 18:41:17.749 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:41:17.749 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-03-05 18:41:17.750 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:41:17.750 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:41:17.750 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-03-05 18:41:17.751 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:41:17.751  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:41:17.751  INFO 18192 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-03-05 18:41:18.193  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/comment/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.CommentController.comments', args=[5, {}]}
+2020-03-05 18:41:18.195 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.b.d.C.CommentsByBlogIdNull           : ==>  Preparing: select * from t_comment where blog_id = ? and parent_comment_id = ? 
+2020-03-05 18:41:18.195 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.b.d.C.CommentsByBlogIdNull           : ==> Parameters: 5(Long), -1(Long)
+2020-03-05 18:41:18.197 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.b.d.C.CommentsByBlogIdNull           : <==      Total: 1
+2020-03-05 18:41:18.198 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:41:18.198 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 81(Long)
+2020-03-05 18:41:18.199 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 18:41:18.199  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:41:18.199  INFO 18192 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-03-05 18:41:31.500  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-03-05 18:41:31.501 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 18:41:31.502 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 18:41:31.504 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 18:41:31.504 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 18:41:31.504 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-03-05 18:41:31.505 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 6
+2020-03-05 18:41:31.506 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.id,t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id ORDER BY typeCount DESC)as b on t.id=b.typeId LIMIT 0,? 
+2020-03-05 18:41:31.506 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-03-05 18:41:31.508 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-03-05 18:41:31.509 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.id,tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id ORDER BY tagCount DESC LIMIT 0,? 
+2020-03-05 18:41:31.509 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-03-05 18:41:31.511 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-03-05 18:41:31.511 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-03-05 18:41:31.511 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-03-05 18:41:31.512 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 8
+2020-03-05 18:41:31.512  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:41:31.512  INFO 18192 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-03-05 18:41:33.834  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[1, {}]}
+2020-03-05 18:41:33.836 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 18:41:33.836 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 1(Long)
+2020-03-05 18:41:33.841 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 18:41:33.841 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.updateViews  : ==>  Preparing: update t_blog set views = views + 1 where id = ? 
+2020-03-05 18:41:33.842 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.updateViews  : ==> Parameters: 1(Long)
+2020-03-05 18:41:33.855 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.updateViews  : <==    Updates: 1
+2020-03-05 18:41:33.856 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:41:33.856 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-03-05 18:41:33.858 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:41:33.859 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:41:33.859 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 7(Long)
+2020-03-05 18:41:33.861 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:41:33.861  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:41:33.861  INFO 18192 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-03-05 18:41:34.327  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/comment/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.CommentController.comments', args=[1, {}]}
+2020-03-05 18:41:34.329 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.C.CommentsByBlogIdNull_COUNT     : ==>  Preparing: SELECT count(0) FROM t_comment WHERE blog_id = ? AND parent_comment_id = ? 
+2020-03-05 18:41:34.329 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.C.CommentsByBlogIdNull_COUNT     : ==> Parameters: 1(Long), -1(Long)
+2020-03-05 18:41:34.343 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.C.CommentsByBlogIdNull_COUNT     : <==      Total: 1
+2020-03-05 18:41:34.343 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.C.CommentsByBlogIdNull           : ==>  Preparing: select * from t_comment where blog_id = ? and parent_comment_id = ? LIMIT ? 
+2020-03-05 18:41:34.343 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.C.CommentsByBlogIdNull           : ==> Parameters: 1(Long), -1(Long), 30(Integer)
+2020-03-05 18:41:34.346 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.C.CommentsByBlogIdNull           : <==      Total: 3
+2020-03-05 18:41:34.347 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:41:34.347 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 83(Long)
+2020-03-05 18:41:34.347 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 18:41:34.348 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:41:34.348 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 84(Long)
+2020-03-05 18:41:34.348 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 1
+2020-03-05 18:41:34.349 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:41:34.350 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 86(Long)
+2020-03-05 18:41:34.350 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 18:41:34.350 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.CommentMapper.findParentComment  : ==>  Preparing: select * from t_comment where parent_comment_id = ? and id = ? 
+2020-03-05 18:41:34.351 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.CommentMapper.findParentComment  : ==> Parameters: -1(Long), 84(Long)
+2020-03-05 18:41:34.351 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.d.CommentMapper.findParentComment  : <==      Total: 1
+2020-03-05 18:41:34.351 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==>  Preparing: select * from t_comment where parent_comment_id = ? 
+2020-03-05 18:41:34.352 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : ==> Parameters: 85(Long)
+2020-03-05 18:41:34.352 DEBUG 18192 --- [http-nio-8080-exec-10] c.m.b.dao.CommentMapper.findSonComment   : <==      Total: 0
+2020-03-05 18:41:34.353  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-03-05 18:41:34.353  INFO 18192 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Result : blog :: commentList
+2020-03-05 18:42:37.695 DEBUG 18192 --- [http-nio-8080-exec-2] .m.b.d.U.findByUsernameAndPassword_COUNT : ==>  Preparing: SELECT count(0) FROM t_user WHERE username = ? AND password = ? 
+2020-03-05 18:42:37.695 DEBUG 18192 --- [http-nio-8080-exec-2] .m.b.d.U.findByUsernameAndPassword_COUNT : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String)
+2020-03-05 18:42:37.697 DEBUG 18192 --- [http-nio-8080-exec-2] .m.b.d.U.findByUsernameAndPassword_COUNT : <==      Total: 1
+2020-03-05 18:42:37.698 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? LIMIT ? 
+2020-03-05 18:42:37.698 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.U.findByUsernameAndPassword      : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String), 30(Integer)
+2020-03-05 18:42:37.699 DEBUG 18192 --- [http-nio-8080-exec-2] c.m.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-03-05 18:42:40.504 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 18:42:40.504 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 18:42:40.506 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 18:42:40.511 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 18:42:40.511 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 18:42:40.517 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 18:42:40.518 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 18:42:40.518 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 18:42:40.519 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 18:43:05.544 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 18:43:05.544 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 18:43:05.545 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 18:43:05.547 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-03-05 18:43:05.547 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-03-05 18:43:05.549 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 23
+2020-03-05 18:43:35.206 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 18:43:35.206 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 18:43:35.207 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 18:43:35.220 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-03-05 18:43:35.221 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-03-05 18:43:35.221 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 23
+2020-03-05 18:43:35.222 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 18:43:35.222 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 7(Long)
+2020-03-05 18:43:35.223 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 18:44:00.054 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 18:44:00.054 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 18:44:00.055 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 18:44:00.055 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 18:44:00.055 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 18:44:00.058 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 18:45:18.481 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 18:45:18.481 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 18:45:18.482 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 18:45:18.496 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 18:45:18.497 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 18:45:18.518 DEBUG 18192 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 18:45:18.519 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 18:45:18.519 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 18:45:18.544 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 18:45:20.866 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 18:45:20.866 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 18:45:20.936 DEBUG 18192 --- [http-nio-8080-exec-4] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 18:45:20.936 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 18:45:20.936 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 18:45:20.939 DEBUG 18192 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 18:45:40.378 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 18:45:40.378 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 18:45:40.392 DEBUG 18192 --- [http-nio-8080-exec-8] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 18:45:40.392 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 18:45:40.392 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 18:45:40.393 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 18:45:49.397 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 18:45:49.398 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 18:45:49.542 DEBUG 18192 --- [http-nio-8080-exec-5] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 18:45:49.542 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 18:45:49.542 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 18:45:49.609 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 18:46:03.717 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 18:46:03.717 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 18:46:03.718 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 18:46:03.718 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 18:46:03.718 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 18:46:03.727 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 18:46:20.391 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:46:20.391 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:46:20.403 DEBUG 18192 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:46:42.945 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:46:42.945 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:46:42.946 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:47:01.237 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 18:47:01.237 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 18:47:01.319 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 18:47:01.392 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-03-05 18:47:01.393 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-03-05 18:47:01.433 DEBUG 18192 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-03-05 18:47:01.434 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-03-05 18:47:01.434 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-03-05 18:47:01.521 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-03-05 18:47:02.682 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 18:47:02.683 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 18:47:02.696 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 18:47:02.698 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-03-05 18:47:02.698 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-03-05 18:47:02.699 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 23
+2020-03-05 18:47:02.699 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 18:47:02.700 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 7(Long)
+2020-03-05 18:47:02.702 DEBUG 18192 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 18:47:12.798 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-03-05 18:47:12.798 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-03-05 18:47:12.799 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-03-05 18:47:12.800 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-03-05 18:47:12.800 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-03-05 18:47:12.803 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 23
+2020-03-05 18:47:12.803 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-03-05 18:47:12.803 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 7(Long)
+2020-03-05 18:47:12.804 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-03-05 18:47:14.623 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 18:47:14.623 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 18:47:14.731 DEBUG 18192 --- [http-nio-8080-exec-7] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 18:47:14.731 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 18:47:14.731 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 18:47:14.783 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 18:47:15.539 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:47:15.539 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:47:15.570 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:47:23.100 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:47:23.100 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:47:23.101 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:47:30.191 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:47:30.191 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:47:30.192 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:47:36.221 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:47:36.221 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:47:36.242 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:48:14.454 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:48:14.454 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:48:14.455 DEBUG 18192 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:48:37.510 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:48:37.510 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:48:37.529 DEBUG 18192 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:48:44.772 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:48:44.772 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:48:44.804 DEBUG 18192 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:48:53.633 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:48:53.633 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:48:53.696 DEBUG 18192 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:48:59.164 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:48:59.164 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:48:59.165 DEBUG 18192 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:49:08.588 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:49:08.589 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:49:08.627 DEBUG 18192 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:50:16.998 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-03-05 18:50:16.999 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 1(Long)
+2020-03-05 18:50:17.036 DEBUG 18192 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-03-05 18:50:57.599  INFO 10220 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 10220 (started by CURRY in D:\个人博客\blog)
+2020-03-05 18:50:57.601 DEBUG 10220 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-03-05 18:50:57.602  INFO 10220 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-03-05 18:50:57.702  INFO 10220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-05 18:50:57.703  INFO 10220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-05 18:51:00.756  INFO 10220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-05 18:51:00.789  INFO 10220 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-05 18:51:00.789  INFO 10220 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-03-05 18:51:01.083  INFO 10220 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-05 18:51:01.084  INFO 10220 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3380 ms
+2020-03-05 18:51:02.514  INFO 10220 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-05 18:51:02.581  INFO 10220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-05 18:51:02.584  INFO 10220 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 5.944 seconds (JVM running for 7.853)
+2020-03-05 18:51:16.878  INFO 10220 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-05 18:51:16.879  INFO 10220 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-05 18:51:16.893  INFO 10220 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-03-05 18:51:20.591  INFO 10220 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-05 18:51:20.830  INFO 10220 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-05 18:51:20.837 DEBUG 10220 --- [http-nio-8080-exec-3] c.m.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? 
+2020-03-05 18:51:20.861 DEBUG 10220 --- [http-nio-8080-exec-3] c.m.b.d.U.findByUsernameAndPassword      : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String)
+2020-03-05 18:51:20.881 DEBUG 10220 --- [http-nio-8080-exec-3] c.m.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-03-05 18:52:43.531 DEBUG 10220 --- [http-nio-8080-exec-6] c.m.blog.dao.TypeMapper.listType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type 
+2020-03-05 18:52:43.532 DEBUG 10220 --- [http-nio-8080-exec-6] c.m.blog.dao.TypeMapper.listType_COUNT   : ==> Parameters: 
+2020-03-05 18:52:43.535 DEBUG 10220 --- [http-nio-8080-exec-6] c.m.blog.dao.TypeMapper.listType_COUNT   : <==      Total: 1
+2020-03-05 18:52:43.537 DEBUG 10220 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type LIMIT ? 
+2020-03-05 18:52:43.538 DEBUG 10220 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 5(Integer)
+2020-03-05 18:52:43.540 DEBUG 10220 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 5
+2020-03-05 18:53:12.931 DEBUG 10220 --- [http-nio-8080-exec-9] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 18:53:12.931 DEBUG 10220 --- [http-nio-8080-exec-9] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 18:53:12.934 DEBUG 10220 --- [http-nio-8080-exec-9] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 18:53:12.935 DEBUG 10220 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ? 
+2020-03-05 18:53:12.935 DEBUG 10220 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 5(Integer)
+2020-03-05 18:53:12.938 DEBUG 10220 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 18:54:16.045 DEBUG 10220 --- [http-nio-8080-exec-2] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==>  Preparing: SELECT count(0) FROM t_tag 
+2020-03-05 18:54:16.046 DEBUG 10220 --- [http-nio-8080-exec-2] c.mzr.blog.dao.TagMapper.listTag_COUNT   : ==> Parameters: 
+2020-03-05 18:54:16.047 DEBUG 10220 --- [http-nio-8080-exec-2] c.mzr.blog.dao.TagMapper.listTag_COUNT   : <==      Total: 1
+2020-03-05 18:54:16.047 DEBUG 10220 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag LIMIT ? 
+2020-03-05 18:54:16.048 DEBUG 10220 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 5(Integer)
+2020-03-05 18:54:16.050 DEBUG 10220 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 5
+2020-03-05 18:54:43.880 DEBUG 10220 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:54:43.881 DEBUG 10220 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 1(Long)
+2020-03-05 18:54:43.883 DEBUG 10220 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:54:45.879 DEBUG 10220 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:54:45.879 DEBUG 10220 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 2(Long)
+2020-03-05 18:54:45.883 DEBUG 10220 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-03-05 18:56:11.904 DEBUG 10220 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-03-05 18:56:11.905 DEBUG 10220 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 2(Long)
+2020-03-05 18:56:11.908 DEBUG 10220 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1

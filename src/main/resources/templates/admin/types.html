@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类别管理</title>
+  <link rel="stylesheet" href="../../static/Semantic-UI-CSS-master/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+  <!--导航-->
+  <nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+    <div class="ui container">
+      <div class="ui inverted secondary stackable menu">
+        <h2 class="ui teal header item">博客后台管理系统</h2>
+        <a href="#" class="active m-item item m-mobile-hide"><i class=" home icon"></i>博客</a>
+        <a href="#" class=" m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
+        <a href="#" class="m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+        <div class="right m-item m-mobile-hide menu">
+          <div class="ui dropdown  item">
+            <div class="text">
+              <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005">
+              Ryan
+            </div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <a href="#" class="item">注销</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+      <i class="sidebar icon"></i>
+    </a>
+  </nav>
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" th:href="@{/admin/types/input}" class="item">新增</a>
+        <a href="#" th:href="@{/admin/types}" class="teal active item">列表</a>
+      </div>
+    </div>
+  </div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+      <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+        <i class="close icon"></i>
+        <div class="header">提示：</div>
+        <p th:text="${message}">恭喜，操作成功！</p>
+      </div>
+      <table class="ui celled striped table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="ui center aligned">名称</th>
+            <th class="ui center aligned">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="type,iterStat : ${types.list}">
+            <td th:text="${type.id}" class="ui center aligned" width="10%">1</td>
+            <td th:text="${type.name}" width="40%" class="ui center aligned">刻意练习清单</td>
+            <td class="ui center aligned">
+              <a href="#" th:href="@{/admin/types/{id}/update(id=${type.id})}" class="ui  teal basic button">编辑</a>
+              <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.id})}" class="ui  red basic button">删除</a>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6" >
+              <div class="ui center aligned">
+                <span>当前第 <span th:text="${types.pageNum}"></span> 页, 总 <span th:text="${types.pages}"></span> 页, 共 <span th:text="${types.total}"></span> 条记录</span>
+              </div>
+              <div class="ui center aligned pagination menu">
+                <a th:href="@{/admin/types(pageNum=${types.hasPreviousPage}?${types.prePage}:1)}"  aria-label="Previous" class=" item">上一页</a>
+                <a th:href="@{/admin/types(pageNum=${types.hasNextPage}?${types.nextPage}:${types.pages})}" aria-label="Next" class=" item">下一页</a>
+              </div>
+              <a href="#" th:href="@{/admin/types/input}"  class="ui  right floated teal basic button">新增</a>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <!--底部footer-->
+  <footer th:replace="admin/_fragments :: footer">
+  </footer>
+
+
+  <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+  <script src="../../static/js/jquery-3.4.1.min.js"></script>
+  <script src="../../static/Semantic-UI-CSS-master/semantic.min.js"></script>
+  <!--/*/</th:block>/*/-->
+
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+
+    //消息提示关闭初始化
+    $('.message .close')
+      .on('click', function () {
+        $(this)
+          .closest('.message')
+          .transition('fade');
+      });
+  </script>
+</body>
+</html>

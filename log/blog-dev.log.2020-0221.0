@@ -1,0 +1,1306 @@
+2020-02-21 00:01:52.700  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19792 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:01:52.702 DEBUG 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:01:52.703  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:01:53.502  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:01:53.503  INFO 19792 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:01:53.504  INFO 19792 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:01:53.594  INFO 19792 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:01:53.596  INFO 19792 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 889 ms
+2020-02-21 00:01:54.280  INFO 19792 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:01:54.299  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:01:54.300  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.629 seconds (JVM running for 456.341)
+2020-02-21 00:01:54.301  INFO 19792 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:02:48.838  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19792 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:02:48.838 DEBUG 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:02:48.839  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:02:49.301  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:02:49.301  INFO 19792 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:02:49.301  INFO 19792 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:02:49.333  INFO 19792 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:02:49.333  INFO 19792 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 492 ms
+2020-02-21 00:02:49.924  INFO 19792 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:02:49.943  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:02:49.944  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.141 seconds (JVM running for 511.986)
+2020-02-21 00:02:49.945  INFO 19792 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:02:53.319  INFO 19792 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:02:53.321  INFO 19792 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:02:53.335  INFO 19792 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-02-21 00:02:53.342  INFO 19792 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[4, {}]}
+2020-02-21 00:02:53.347  INFO 19792 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-02-21 00:02:53.365  INFO 19792 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-02-21 00:02:53.368 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:02:53.369 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 00:02:53.378 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:02:53.383 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:02:53.383 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 00:02:53.386 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:02:53.391  INFO 19792 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:02:53.392  INFO 19792 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:03:54.912  INFO 19792 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2020-02-21 00:03:54.917  INFO 19792 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2020-02-21 00:03:55.510  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19792 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:03:55.510 DEBUG 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:03:55.510  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:03:56.066  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:03:56.067  INFO 19792 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:03:56.067  INFO 19792 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:03:56.100  INFO 19792 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:03:56.100  INFO 19792 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 586 ms
+2020-02-21 00:03:57.093  INFO 19792 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:03:57.117  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:03:57.118  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.656 seconds (JVM running for 579.16)
+2020-02-21 00:03:57.119  INFO 19792 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:04:12.666  INFO 19792 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:04:12.667  INFO 19792 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:04:12.678  INFO 19792 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-02-21 00:04:12.682  INFO 19792 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[4, {}]}
+2020-02-21 00:04:12.686  INFO 19792 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2020-02-21 00:04:12.699  INFO 19792 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2020-02-21 00:04:12.702 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:04:12.703 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 00:04:12.707 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:04:12.710 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:04:12.710 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 00:04:12.711 DEBUG 19792 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:04:12.713  INFO 19792 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:04:12.713  INFO 19792 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:08:40.734  INFO 19792 --- [Thread-49] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2020-02-21 00:08:40.741  INFO 19792 --- [Thread-49] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2020-02-21 00:08:41.393  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19792 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:08:41.393 DEBUG 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:08:41.393  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:08:41.778  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:08:41.779  INFO 19792 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:08:41.779  INFO 19792 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:08:41.814  INFO 19792 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:08:41.814  INFO 19792 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 419 ms
+2020-02-21 00:08:42.334  INFO 19792 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:08:42.352  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:08:42.352  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 0.986 seconds (JVM running for 864.394)
+2020-02-21 00:08:42.354  INFO 19792 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:08:53.321  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19792 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:08:53.322 DEBUG 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:08:53.322  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:08:54.200  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:08:54.201  INFO 19792 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:08:54.201  INFO 19792 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:08:54.235  INFO 19792 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:08:54.235  INFO 19792 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 911 ms
+2020-02-21 00:08:54.860  INFO 19792 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:08:54.906  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:08:54.907  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.618 seconds (JVM running for 876.949)
+2020-02-21 00:08:54.909  INFO 19792 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:11:25.578  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19792 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:11:25.578 DEBUG 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:11:25.578  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:11:26.140  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:11:26.142  INFO 19792 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:11:26.142  INFO 19792 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:11:26.182  INFO 19792 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:11:26.182  INFO 19792 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 601 ms
+2020-02-21 00:11:26.967  INFO 19792 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:11:27.023  INFO 19792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:11:27.024  INFO 19792 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.487 seconds (JVM running for 1029.066)
+2020-02-21 00:11:27.026  INFO 19792 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:35:06.451  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:35:06.452 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:35:06.453  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:35:06.530  INFO 19972 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-21 00:35:06.531  INFO 19972 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-21 00:35:08.329  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:35:08.357  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:35:08.358  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:35:08.517  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:35:08.517  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1986 ms
+2020-02-21 00:35:10.102  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:35:10.179  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:35:10.183  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 4.75 seconds (JVM running for 7.747)
+2020-02-21 00:35:14.591  INFO 19972 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:35:14.591  INFO 19972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:35:14.607  INFO 19972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-02-21 00:35:14.654  INFO 19972 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-02-21 00:35:14.669  INFO 19972 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-21 00:35:14.822  INFO 19972 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-21 00:35:14.978 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 00:35:15.016 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 00:35:15.053 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 00:35:15.056 DEBUG 19972 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 00:35:15.057 DEBUG 19972 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-02-21 00:35:15.071 DEBUG 19972 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 00:35:15.079 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId LIMIT 0,? 
+2020-02-21 00:35:15.080 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-02-21 00:35:15.084 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-02-21 00:35:15.088 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id LIMIT 0,? 
+2020-02-21 00:35:15.088 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-02-21 00:35:15.092 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-02-21 00:35:15.095 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-02-21 00:35:15.095 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-02-21 00:35:15.101 DEBUG 19972 --- [http-nio-8080-exec-2] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 5
+2020-02-21 00:35:15.102  INFO 19972 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:35:15.103  INFO 19972 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-02-21 00:35:19.747  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:35:19.753 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:35:19.753 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:35:19.755 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:35:19.764 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:35:19.765 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:35:19.766 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:35:19.770 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:35:19.770 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:35:19.771 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:35:19.775  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:35:19.775  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:39:54.359  INFO 19972 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-21 00:39:54.363  INFO 19972 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-21 00:39:55.155  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:39:55.155 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:39:55.155  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:39:55.728  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:39:55.728  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:39:55.729  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:39:55.773  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:39:55.774  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 616 ms
+2020-02-21 00:39:56.357  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:39:56.392  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:39:56.392  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.282 seconds (JVM running for 293.956)
+2020-02-21 00:39:56.394  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:40:00.260  INFO 19972 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:40:00.261  INFO 19972 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:40:00.277  INFO 19972 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-02-21 00:40:00.285  INFO 19972 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:40:00.289  INFO 19972 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-02-21 00:40:00.305  INFO 19972 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-02-21 00:40:00.309 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:40:00.309 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:40:00.315 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:40:00.321 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:40:00.322 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:40:00.323 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:40:00.333 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:40:00.334 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:40:00.335 DEBUG 19972 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:40:00.338  INFO 19972 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:40:00.338  INFO 19972 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:40:33.772  INFO 19972 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-02-21 00:40:33.855  INFO 19972 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-02-21 00:40:34.614  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:40:34.614 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:40:34.614  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:40:35.188  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:40:35.189  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:40:35.189  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:40:35.236  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:40:35.236  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 619 ms
+2020-02-21 00:40:35.974  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:40:35.994  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:40:35.995  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.446 seconds (JVM running for 333.559)
+2020-02-21 00:40:35.997  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:41:37.483  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:41:37.484 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:41:37.484  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:41:37.956  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:41:37.958  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:41:37.958  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:41:37.999  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:41:38.000  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 514 ms
+2020-02-21 00:41:38.582  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:41:38.604  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:41:38.604  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.154 seconds (JVM running for 396.168)
+2020-02-21 00:41:38.606  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:41:43.216  INFO 19972 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:41:43.217  INFO 19972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:41:43.226  INFO 19972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-02-21 00:41:43.230  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:41:43.234  INFO 19972 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-02-21 00:41:43.244  INFO 19972 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-02-21 00:41:43.247 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:41:43.248 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:41:43.250 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:41:43.256 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:41:43.256 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:41:43.257 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:41:43.260 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:41:43.260 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:41:43.261 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:41:43.263 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:41:43.263 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:41:43.264 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:41:43.266 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:41:43.267 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:41:43.268 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:41:43.271  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:41:43.271  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:42:29.078  INFO 19972 --- [Thread-37] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2020-02-21 00:42:29.085  INFO 19972 --- [Thread-37] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2020-02-21 00:42:29.555  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:42:29.556 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:42:29.556  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:42:29.995  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:42:29.996  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:42:29.996  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:42:30.029  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:42:30.029  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 471 ms
+2020-02-21 00:42:30.726  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:42:30.781  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:42:30.783  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.255 seconds (JVM running for 448.347)
+2020-02-21 00:42:30.786  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:42:33.417  INFO 19972 --- [http-nio-8080-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:42:33.418  INFO 19972 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:42:33.430  INFO 19972 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-02-21 00:42:33.437  INFO 19972 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:42:33.441  INFO 19972 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2020-02-21 00:42:33.451  INFO 19972 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2020-02-21 00:42:33.455 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:42:33.455 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:42:33.458 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:42:33.467 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:42:33.467 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:42:33.468 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:42:33.470  INFO 19972 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:42:33.487 ERROR 19972 --- [http-nio-8080-exec-10] c.m.b.h.ControllerExceptionHandler       : Reuqest URL : http://localhost:8080/blog/5, Exception : {}
+
+java.lang.NullPointerException: null
+	at com.mzr.blog.controller.IndexController.convertToList(IndexController.java:80)
+	at com.mzr.blog.controller.IndexController.blog(IndexController.java:94)
+	at com.mzr.blog.controller.IndexController$$FastClassBySpringCGLIB$$16296df2.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.mzr.blog.controller.IndexController$$EnhancerBySpringCGLIB$$6ca7a630.blog(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-02-21 00:43:12.247  INFO 19972 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2020-02-21 00:43:12.269  INFO 19972 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2020-02-21 00:43:12.876  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:43:12.876 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:43:12.876  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:43:13.287  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:43:13.288  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:43:13.288  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:43:13.334  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:43:13.335  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 457 ms
+2020-02-21 00:43:13.996  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:43:14.052  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:43:14.053  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.21 seconds (JVM running for 491.616)
+2020-02-21 00:43:14.055  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:43:16.753  INFO 19972 --- [http-nio-8080-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:43:16.755  INFO 19972 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:43:16.765  INFO 19972 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-02-21 00:43:16.769  INFO 19972 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:43:16.772  INFO 19972 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2020-02-21 00:43:16.783  INFO 19972 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2020-02-21 00:43:16.786 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:43:16.786 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:43:16.794 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:43:16.800 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:43:16.800 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:43:16.802 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:43:16.806 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:43:16.806 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:43:16.809 DEBUG 19972 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:43:16.812  INFO 19972 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:43:16.812  INFO 19972 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:44:39.481  INFO 19972 --- [Thread-49] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2020-02-21 00:44:39.488  INFO 19972 --- [Thread-49] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2020-02-21 00:44:40.146  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:44:40.146 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:44:40.146  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:44:40.504  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:44:40.505  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:44:40.505  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:44:40.539  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:44:40.539  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 391 ms
+2020-02-21 00:44:41.131  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:44:41.150  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:44:41.150  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.03 seconds (JVM running for 578.714)
+2020-02-21 00:44:41.152  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:44:43.245  INFO 19972 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:44:43.246  INFO 19972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:44:43.261  INFO 19972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-02-21 00:44:43.265  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:44:43.270  INFO 19972 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2020-02-21 00:44:43.280  INFO 19972 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2020-02-21 00:44:43.285 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:44:43.286 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:44:43.292 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:44:43.299 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:44:43.299 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:44:43.301 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:44:43.305 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:44:43.305 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:44:43.306 DEBUG 19972 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:44:43.310  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:44:43.310  INFO 19972 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:47:00.544  INFO 19972 --- [Thread-55] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2020-02-21 00:47:00.566  INFO 19972 --- [Thread-55] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2020-02-21 00:47:01.288  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:47:01.288 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:47:01.288  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:47:01.674  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:47:01.675  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:47:01.675  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:47:01.710  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:47:01.710  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 420 ms
+2020-02-21 00:47:02.359  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:47:02.379  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:47:02.380  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.124 seconds (JVM running for 719.944)
+2020-02-21 00:47:02.382  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:48:54.044  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:48:54.045 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:48:54.045  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:48:54.539  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:48:54.541  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:48:54.541  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:48:54.576  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:48:54.576  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 528 ms
+2020-02-21 00:48:54.596  WARN 19972 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'blogController': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.mzr.blog.controller.admin.BlogController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@759ebdb6]
+2020-02-21 00:48:54.597  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-02-21 00:48:54.606  INFO 19972 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-02-21 00:48:54.651 ERROR 19972 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'blogController': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.mzr.blog.controller.admin.BlogController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@759ebdb6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:265)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1269)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1184)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:849)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.mzr.blog.BlogApplication.main(BlogApplication.java:13)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.mzr.blog.controller.admin.BlogController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@759ebdb6]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:507)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:404)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:389)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:248)
+	... 23 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/mzr/blog/pojo/Blog
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:489)
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.mzr.blog.pojo.Blog
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:148)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 30 common frames omitted
+
+2020-02-21 00:48:58.760  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:48:58.761 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:48:58.761  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:48:59.601  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:48:59.602  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:48:59.602  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:48:59.646  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:48:59.646  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 884 ms
+2020-02-21 00:49:00.784  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:49:00.823  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:49:00.824  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 2.105 seconds (JVM running for 838.387)
+2020-02-21 00:49:00.825  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:49:07.615  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:49:07.618 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:49:07.619  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:49:08.624  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:49:08.625  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:49:08.625  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:49:08.663  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:49:08.663  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1037 ms
+2020-02-21 00:49:09.227  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:49:09.252  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:49:09.252  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.712 seconds (JVM running for 846.816)
+2020-02-21 00:49:09.254  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:49:14.002  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 19972 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:49:14.003 DEBUG 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:49:14.006  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:49:14.762  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:49:14.763  INFO 19972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:49:14.763  INFO 19972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:49:14.795  INFO 19972 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:49:14.795  INFO 19972 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 784 ms
+2020-02-21 00:49:15.663  INFO 19972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:49:15.682  INFO 19972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:49:15.682  INFO 19972 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.722 seconds (JVM running for 853.246)
+2020-02-21 00:49:15.684  INFO 19972 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:49:30.427  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 18000 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:49:30.430 DEBUG 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:49:30.430  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:49:30.469  INFO 18000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-21 00:49:30.469  INFO 18000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-21 00:49:32.313  INFO 18000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:49:32.338  INFO 18000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:49:32.338  INFO 18000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:49:32.478  INFO 18000 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:49:32.478  INFO 18000 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2009 ms
+2020-02-21 00:49:33.884  INFO 18000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:49:33.936  INFO 18000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:49:33.938  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 4.153 seconds (JVM running for 5.397)
+2020-02-21 00:49:38.053  INFO 18000 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:49:38.053  INFO 18000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:49:38.065  INFO 18000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-02-21 00:49:38.093  INFO 18000 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:49:38.101  INFO 18000 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-21 00:49:38.198  INFO 18000 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-21 00:49:38.225 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:49:38.245 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:49:38.276 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:49:38.285 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:49:38.285 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:49:38.288 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:49:38.292 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:49:38.292 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:49:38.293 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:49:38.295  INFO 18000 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:49:38.295  INFO 18000 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:50:32.567  INFO 18000 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-21 00:50:32.601  INFO 18000 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-21 00:50:33.143  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 18000 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:50:33.143 DEBUG 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:50:33.143  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:50:33.640  INFO 18000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:50:33.641  INFO 18000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:50:33.642  INFO 18000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:50:33.685  INFO 18000 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:50:33.685  INFO 18000 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 540 ms
+2020-02-21 00:50:34.317  INFO 18000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:50:34.346  INFO 18000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:50:34.347  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.239 seconds (JVM running for 65.805)
+2020-02-21 00:50:34.349  INFO 18000 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:50:38.601  INFO 18000 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:50:38.602  INFO 18000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:50:38.631  INFO 18000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 29 ms
+2020-02-21 00:50:38.636  INFO 18000 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:50:38.643  INFO 18000 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-02-21 00:50:38.655  INFO 18000 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-02-21 00:50:38.676 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:50:38.677 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:50:38.684 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:50:38.690 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:50:38.691 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:50:38.693 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:50:38.695 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:50:38.696 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:50:38.697 DEBUG 18000 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:50:38.699  INFO 18000 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:50:38.699  INFO 18000 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:51:32.952  INFO 18000 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-02-21 00:51:32.960  INFO 18000 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-02-21 00:51:35.050  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 18000 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:51:35.051 DEBUG 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:51:35.051  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:51:37.420  INFO 18000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:51:37.421  INFO 18000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:51:37.421  INFO 18000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:51:37.456  INFO 18000 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:51:37.456  INFO 18000 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2403 ms
+2020-02-21 00:51:38.052  INFO 18000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:51:38.071  INFO 18000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:51:38.072  INFO 18000 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 3.049 seconds (JVM running for 129.531)
+2020-02-21 00:51:38.073  INFO 18000 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:52:37.473  INFO 18000 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:52:37.474  INFO 18000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:52:37.481  INFO 18000 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-02-21 00:52:52.021  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:52:52.085 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:52:52.085  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:52:52.129  INFO 21676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-21 00:52:52.129  INFO 21676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-21 00:52:54.186  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:52:54.208  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:52:54.209  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:52:54.341  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:52:54.342  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2213 ms
+2020-02-21 00:52:55.798  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:52:55.857  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:52:55.860  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 5.048 seconds (JVM running for 6.636)
+2020-02-21 00:52:58.883  INFO 21676 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 00:52:58.883  INFO 21676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 00:52:58.897  INFO 21676 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-02-21 00:52:58.924  INFO 21676 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-02-21 00:52:58.934  INFO 21676 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-21 00:52:59.032  INFO 21676 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-21 00:52:59.095 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 00:52:59.118 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 00:52:59.144 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 00:52:59.146 DEBUG 21676 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 00:52:59.147 DEBUG 21676 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-02-21 00:52:59.225 DEBUG 21676 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 00:52:59.237 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId LIMIT 0,? 
+2020-02-21 00:52:59.238 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-02-21 00:52:59.241 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-02-21 00:52:59.246 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id LIMIT 0,? 
+2020-02-21 00:52:59.247 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-02-21 00:52:59.252 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-02-21 00:52:59.256 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-02-21 00:52:59.256 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-02-21 00:52:59.262 DEBUG 21676 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 5
+2020-02-21 00:52:59.263  INFO 21676 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:52:59.264  INFO 21676 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-02-21 00:53:00.728  INFO 21676 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 00:53:00.736 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 00:53:00.737 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 00:53:00.741 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 00:53:00.750 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:53:00.750 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 00:53:00.752 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:53:00.756 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 00:53:00.756 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 00:53:00.758 DEBUG 21676 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 00:53:00.762  INFO 21676 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 00:53:00.762  INFO 21676 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 00:54:37.283  INFO 21676 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-21 00:54:37.288  INFO 21676 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-21 00:54:37.851  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:54:37.852 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:54:37.852  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:54:38.299  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:54:38.299  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:54:38.300  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:54:38.343  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:54:38.343  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 482 ms
+2020-02-21 00:54:39.456  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:54:39.477  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:54:39.478  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.683 seconds (JVM running for 110.254)
+2020-02-21 00:54:39.479  INFO 21676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:58:20.391  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:58:20.392 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:58:20.394  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:58:20.820  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:58:20.821  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:58:20.821  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:58:20.861  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:58:20.861  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 461 ms
+2020-02-21 00:58:21.433  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:58:21.453  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:58:21.453  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.102 seconds (JVM running for 332.23)
+2020-02-21 00:58:21.455  INFO 21676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:58:55.439  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:58:55.440 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:58:55.440  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:58:56.012  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:58:56.013  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:58:56.013  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:58:56.049  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:58:56.050  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 607 ms
+2020-02-21 00:58:57.137  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:58:57.159  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:58:57.160  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.766 seconds (JVM running for 367.937)
+2020-02-21 00:58:57.161  INFO 21676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 00:59:26.920  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 00:59:26.920 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 00:59:26.920  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 00:59:28.172  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 00:59:28.173  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 00:59:28.173  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 00:59:28.240  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 00:59:28.240  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1318 ms
+2020-02-21 00:59:29.845  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 00:59:29.878  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 00:59:29.878  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 2.999 seconds (JVM running for 400.655)
+2020-02-21 00:59:29.880  INFO 21676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 01:01:00.842  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:01:00.843 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:01:00.843  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:01:01.402  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:01:01.403  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:01:01.403  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:01:01.459  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:01:01.459  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 614 ms
+2020-02-21 01:01:01.489  WARN 21676 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexController': Unsatisfied dependency expressed through field 'blogServiceImpl'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.mzr.blog.service.BlogService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-02-21 01:01:01.489  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-02-21 01:01:01.496  INFO 21676 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-02-21 01:01:01.769 ERROR 21676 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field blogServiceImpl in com.mzr.blog.controller.IndexController required a bean of type 'com.mzr.blog.service.BlogService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.mzr.blog.service.BlogService' in your configuration.
+
+2020-02-21 01:01:03.500  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:01:03.501 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:01:03.501  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:01:04.137  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:01:04.138  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:01:04.138  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:01:04.201  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:01:04.201  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 699 ms
+2020-02-21 01:01:05.110  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:01:05.141  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:01:05.142  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.669 seconds (JVM running for 495.919)
+2020-02-21 01:01:05.144  INFO 21676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 01:03:10.463  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:03:10.463 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:03:10.463  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:03:11.263  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:03:11.275  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:03:11.276  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:03:11.392  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:03:11.393  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 928 ms
+2020-02-21 01:03:12.419  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:03:12.456  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:03:12.457  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 2.022 seconds (JVM running for 623.234)
+2020-02-21 01:03:12.459  INFO 21676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 01:03:46.999  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:03:46.999 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:03:46.999  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:03:47.436  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:03:47.437  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:03:47.437  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:03:47.474  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:03:47.474  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 471 ms
+2020-02-21 01:03:47.489  WARN 21676 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexController': Unsatisfied dependency expressed through field 'blogServiceImpl'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.mzr.blog.service.BlogService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-02-21 01:03:47.490  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-02-21 01:03:47.494  INFO 21676 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-02-21 01:03:47.637 ERROR 21676 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field blogServiceImpl in com.mzr.blog.controller.IndexController required a bean of type 'com.mzr.blog.service.BlogService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.mzr.blog.service.BlogService' in your configuration.
+
+2020-02-21 01:04:50.356  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 21676 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:04:50.357 DEBUG 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:04:50.357  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:04:51.115  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:04:51.116  INFO 21676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:04:51.116  INFO 21676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:04:51.150  INFO 21676 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:04:51.150  INFO 21676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 788 ms
+2020-02-21 01:04:51.691  INFO 21676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:04:51.711  INFO 21676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:04:51.712  INFO 21676 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.396 seconds (JVM running for 722.489)
+2020-02-21 01:04:51.713  INFO 21676 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 01:05:05.210  INFO 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 15064 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:05:05.212 DEBUG 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:05:05.212  INFO 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:05:05.424  INFO 15064 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-21 01:05:05.424  INFO 15064 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-21 01:05:07.489  INFO 15064 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:05:07.543  INFO 15064 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:05:07.544  INFO 15064 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:05:07.775  INFO 15064 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:05:07.775  INFO 15064 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2351 ms
+2020-02-21 01:05:09.046  INFO 15064 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:05:09.096  INFO 15064 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:05:09.099  INFO 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 4.465 seconds (JVM running for 5.612)
+2020-02-21 01:05:10.865  INFO 15064 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 01:05:10.865  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 01:05:10.883  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2020-02-21 01:05:10.913  INFO 15064 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-02-21 01:05:10.922  INFO 15064 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-21 01:05:11.050  INFO 15064 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-21 01:05:11.134 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:05:11.164 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:05:11.205 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:05:11.209 DEBUG 15064 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:05:11.210 DEBUG 15064 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-02-21 01:05:11.224 DEBUG 15064 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:05:11.234 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId LIMIT 0,? 
+2020-02-21 01:05:11.234 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-02-21 01:05:11.237 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-02-21 01:05:11.241 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id LIMIT 0,? 
+2020-02-21 01:05:11.241 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-02-21 01:05:11.248 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-02-21 01:05:11.251 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-02-21 01:05:11.252 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-02-21 01:05:11.256 DEBUG 15064 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 5
+2020-02-21 01:05:11.257  INFO 15064 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:05:11.257  INFO 15064 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-02-21 01:05:13.847  INFO 15064 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 01:05:13.852 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:05:13.853 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 01:05:13.856 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:05:13.864 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:05:13.864 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 01:05:13.866 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:05:13.870 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:05:13.870 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 01:05:13.872 DEBUG 15064 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:05:13.876  INFO 15064 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:05:13.876  INFO 15064 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:05:48.343  INFO 15064 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 01:05:48.348 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:05:48.348 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 01:05:48.350 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:05:48.355 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:05:48.355 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 01:05:48.356 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:05:48.363 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:05:48.364 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 01:05:48.365 DEBUG 15064 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:05:48.368  INFO 15064 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:05:48.369  INFO 15064 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:06:00.619  INFO 15064 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 01:06:00.624 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:06:00.624 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 01:06:00.627 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:06:00.630 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:06:00.631 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 01:06:00.632 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:06:00.638 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:06:00.639 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 01:06:00.640 DEBUG 15064 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:06:00.644  INFO 15064 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:06:00.645  INFO 15064 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:06:30.954  INFO 15064 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-21 01:06:30.960  INFO 15064 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-21 01:06:31.824  INFO 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 15064 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:06:31.824 DEBUG 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:06:31.824  INFO 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:06:32.395  INFO 15064 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:06:32.399  INFO 15064 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:06:32.400  INFO 15064 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:06:32.453  INFO 15064 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:06:32.454  INFO 15064 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 628 ms
+2020-02-21 01:06:33.175  INFO 15064 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:06:33.196  INFO 15064 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:06:33.197  INFO 15064 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.413 seconds (JVM running for 89.709)
+2020-02-21 01:06:33.199  INFO 15064 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 01:06:36.380  INFO 15064 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 01:06:36.381  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 01:06:36.396  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-02-21 01:06:44.307  INFO 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 3056 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:06:44.309 DEBUG 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:06:44.309  INFO 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:06:44.358  INFO 3056 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-21 01:06:44.359  INFO 3056 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-21 01:06:45.811  INFO 3056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:06:45.835  INFO 3056 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:06:45.836  INFO 3056 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:06:45.962  INFO 3056 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:06:45.963  INFO 3056 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1604 ms
+2020-02-21 01:06:47.138  INFO 3056 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:06:47.187  INFO 3056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:06:47.189  INFO 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 3.485 seconds (JVM running for 5.15)
+2020-02-21 01:06:49.824  INFO 3056 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 01:06:49.825  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 01:06:49.835  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-02-21 01:06:49.860  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-02-21 01:06:49.869  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-21 01:06:49.984  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-21 01:06:50.059 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:06:50.079 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:06:50.100 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:06:50.102 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:06:50.103 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-02-21 01:06:50.119 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:06:50.128 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId LIMIT 0,? 
+2020-02-21 01:06:50.128 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-02-21 01:06:50.132 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-02-21 01:06:50.135 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id LIMIT 0,? 
+2020-02-21 01:06:50.136 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-02-21 01:06:50.140 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-02-21 01:06:50.144 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-02-21 01:06:50.145 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-02-21 01:06:50.151 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 5
+2020-02-21 01:06:50.152  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:06:50.152  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-02-21 01:06:51.196  INFO 3056 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[5, {}]}
+2020-02-21 01:06:51.201 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:06:51.201 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 01:06:51.207 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:06:51.250 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:06:51.250 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 19(Long)
+2020-02-21 01:06:51.252 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:06:51.255 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:06:51.256 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 18(Long)
+2020-02-21 01:06:51.259 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:06:51.262  INFO 3056 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:06:51.262  INFO 3056 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:07:03.960  INFO 3056 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[3, {}]}
+2020-02-21 01:07:03.966 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:07:03.967 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:07:03.974 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:07:03.982 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:07:03.983 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 13(Long)
+2020-02-21 01:07:03.985 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:07:03.987  INFO 3056 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:07:03.987  INFO 3056 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:07:11.420  INFO 3056 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[4, {}]}
+2020-02-21 01:07:11.423 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:07:11.423 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 01:07:11.426 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:07:11.429 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:07:11.430 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 8(Long)
+2020-02-21 01:07:11.431 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:07:11.435 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:07:11.435 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:07:11.436 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:07:11.438  INFO 3056 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:07:11.438  INFO 3056 --- [http-nio-8080-exec-5] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:07:21.190  INFO 3056 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[1, {}]}
+2020-02-21 01:07:21.196 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:07:21.198 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 1(Long)
+2020-02-21 01:07:21.201 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:07:21.205 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:07:21.205 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:07:21.207 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:07:21.217 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:07:21.218 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 7(Long)
+2020-02-21 01:07:21.220 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:07:21.222  INFO 3056 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:07:21.222  INFO 3056 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:07:34.755  INFO 3056 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/2', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[2, {}]}
+2020-02-21 01:07:34.762 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:07:34.762 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 2(Long)
+2020-02-21 01:07:34.767 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:07:34.773 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:07:34.773 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:07:34.775 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:07:34.778 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:07:34.778 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 7(Long)
+2020-02-21 01:07:34.779 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:07:34.780  INFO 3056 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:07:34.780  INFO 3056 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:08:17.789  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[3, {}]}
+2020-02-21 01:08:17.794 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:08:17.794 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:08:17.802 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:08:17.806 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:08:17.806 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 13(Long)
+2020-02-21 01:08:17.808 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:08:17.810  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:08:17.810  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:08:39.614 DEBUG 3056 --- [http-nio-8080-exec-6] c.m.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? 
+2020-02-21 01:08:39.615 DEBUG 3056 --- [http-nio-8080-exec-6] c.m.b.d.U.findByUsernameAndPassword      : ==> Parameters: admin(String), 8beac31ce70381dca1107195809d9f23(String)
+2020-02-21 01:08:39.617 DEBUG 3056 --- [http-nio-8080-exec-6] c.m.b.d.U.findByUsernameAndPassword      : <==      Total: 0
+2020-02-21 01:08:42.013 DEBUG 3056 --- [http-nio-8080-exec-8] c.m.b.d.U.findByUsernameAndPassword      : ==>  Preparing: select * from t_user where username = ? and password = ? 
+2020-02-21 01:08:42.014 DEBUG 3056 --- [http-nio-8080-exec-8] c.m.b.d.U.findByUsernameAndPassword      : ==> Parameters: admin(String), 21232f297a57a5a743894a0e4a801fc3(String)
+2020-02-21 01:08:42.015 DEBUG 3056 --- [http-nio-8080-exec-8] c.m.b.d.U.findByUsernameAndPassword      : <==      Total: 1
+2020-02-21 01:08:43.210 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:08:43.210 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:08:43.216 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:08:43.222 DEBUG 3056 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:08:43.222 DEBUG 3056 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:08:43.224 DEBUG 3056 --- [http-nio-8080-exec-9] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:08:43.225 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:08:43.225 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-02-21 01:08:43.234 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:08:50.093 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:08:50.094 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:08:50.096 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:08:50.103 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-02-21 01:08:50.104 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-02-21 01:08:50.108 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 19
+2020-02-21 01:08:50.112 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:08:50.112 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:08:50.114 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:10:24.208  WARN 3056 --- [http-nio-8080-exec-5] o.springframework.validation.DataBinder  : Skipping URI variable 'id' because request contains bind value with same name.
+2020-02-21 01:10:24.230 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-02-21 01:10:24.230 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 4(Long)
+2020-02-21 01:10:24.231 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-02-21 01:10:24.248 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.listTagById   : ==>  Preparing: select * from t_tag where t_tag.id in ( ? ) 
+2020-02-21 01:10:24.248 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.listTagById   : ==> Parameters: 13(Long)
+2020-02-21 01:10:24.250 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.TagMapper.listTagById   : <==      Total: 1
+2020-02-21 01:10:24.256 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.updBlog      : ==>  Preparing: update t_blog set appreciation = ?,commendable=?,content=?,description=?,first_picture=?,flag=?,published=?,recommend=?,share_statement=?,title=?,update_time=?,type_id=?,user_id=?,tag_ids=? where id=? 
+2020-02-21 01:10:24.259 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.updBlog      : ==> Parameters: true(Boolean), true(Boolean), ## RDB 总结
+![流程图](https://img-blog.csdnimg.cn/20191213113840933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjg3ODA4,size_16,color_FFFFFF,t_70)
+- RDB是一个非常紧凑的文件
+- RDB在保存RDB文件时父进程唯一需要做的就是fork出一个子进程，接下来的工作全部由子进程来做，父进程不需要再做其他IO操作，所以RDB持久化方式可以最大化Redis的性能
+- 与AOF相比，在恢复大数据集的时候，RDB方式会更快一些
+- 数据丢失风险大
+- RDB需要进程fork子进程来保存数据集到硬盘上，当数据集比较大的时候，fork的过程是非常耗时的，可能会导致Redis在一些毫秒级不能响应客户端操作
+
+## AOF 总结
+![流程图](https://img-blog.csdnimg.cn/20191213111935477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjg3ODA4,size_16,color_FFFFFF,t_70)
+ - AOF文件是一个只进行追加的日志文件
+ - Redis可以在AOF文件体积变得过大时，自动地在后台对AOF进行重写
+ - AOF文件有序地保存了对数据库执行的所有写入操作，这些写入操作以Redis协议的格式保存，因此AOF文件的内容非常容易被人读懂，对文件进行分析也很轻松
+ - 对于相同的数据集来说，AOF文件的体积通常要大于RDB文件的体积
+ - 根据所使用的的fsync策略，AOF的速度可能会慢于RDB
+
+## 总结
+- RDB持久化方式能够在指定的时间间隔，能对你的数据进行快照存储**
+
+- AOF持久化方式记录每次对服务器写的搓澡，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾，Redis还可以对AOF文件进行后台重写，使得AOF文件的体积不至于过大
+
+- 只做缓存：如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持久化的方式
+- 同时开启两种持久化方式
+
+	 - 在这种情况下，当Redis重启的时候会优先载入AOF文件来恢复原始的数据，因为通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整。
+	 - RDB的数据不实的时候，同时使用两者时服务器重启也只会找AOF文件。(String), RDB持久化方式能够在指定的时间间隔，能对你的数据进行快照存储，AOF持久化方式记录每次对服务器写的搓澡，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾，Redis还可以对AOF文件进行后台重写，使得AOF文件的体积不至于过大(String), https://unsplash.it/400/250?image=1002(String), 原创(String), true(Boolean), true(Boolean), true(Boolean), Redis的持久化之RDB与AOF总结(String), 2020-02-21 01:10:24.256(Timestamp), 4(Long), 1(Long), 13(String), 3(Long)
+2020-02-21 01:10:24.280 DEBUG 3056 --- [http-nio-8080-exec-5] com.mzr.blog.dao.BlogMapper.updBlog      : <==    Updates: 1
+2020-02-21 01:10:24.289 DEBUG 3056 --- [http-nio-8080-exec-5] c.m.b.d.b.delBlogAndTagByblogId          : ==>  Preparing: delete from t_blog_tags where blogs_id = ? 
+2020-02-21 01:10:24.290 DEBUG 3056 --- [http-nio-8080-exec-5] c.m.b.d.b.delBlogAndTagByblogId          : ==> Parameters: 3(Long)
+2020-02-21 01:10:24.294 DEBUG 3056 --- [http-nio-8080-exec-5] c.m.b.d.b.delBlogAndTagByblogId          : <==    Updates: 1
+2020-02-21 01:10:24.298 DEBUG 3056 --- [http-nio-8080-exec-5] c.m.b.dao.blogTagsMapper.insBlogAndTag   : ==>  Preparing: insert into t_blog_tags values(?,?) 
+2020-02-21 01:10:24.298 DEBUG 3056 --- [http-nio-8080-exec-5] c.m.b.dao.blogTagsMapper.insBlogAndTag   : ==> Parameters: 3(Long), 13(Long)
+2020-02-21 01:10:24.301 DEBUG 3056 --- [http-nio-8080-exec-5] c.m.b.dao.blogTagsMapper.insBlogAndTag   : <==    Updates: 1
+2020-02-21 01:10:24.310 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:10:24.311 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:10:24.313 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:10:24.319 DEBUG 3056 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:10:24.319 DEBUG 3056 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:10:24.321 DEBUG 3056 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:10:24.322 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:10:24.322 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-02-21 01:10:24.326 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:10:29.902  INFO 3056 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[3, {}]}
+2020-02-21 01:10:29.906 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:10:29.907 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:10:29.909 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:10:29.912 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:10:29.912 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 13(Long)
+2020-02-21 01:10:29.913 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:10:29.916  INFO 3056 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:10:29.917  INFO 3056 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:10:42.439 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:10:42.440 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:10:42.441 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:10:42.444 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-02-21 01:10:42.445 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-02-21 01:10:42.446 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 19
+2020-02-21 01:10:42.447 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:10:42.448 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:10:42.449 DEBUG 3056 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:11:11.271  WARN 3056 --- [http-nio-8080-exec-1] o.springframework.validation.DataBinder  : Skipping URI variable 'id' because request contains bind value with same name.
+2020-02-21 01:11:11.274 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==>  Preparing: select * from t_type where id = ? 
+2020-02-21 01:11:11.275 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : ==> Parameters: 4(Long)
+2020-02-21 01:11:11.278 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TypeMapper.findType     : <==      Total: 1
+2020-02-21 01:11:11.284 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTagById   : ==>  Preparing: select * from t_tag where t_tag.id in ( ? ) 
+2020-02-21 01:11:11.284 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTagById   : ==> Parameters: 13(Long)
+2020-02-21 01:11:11.287 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.listTagById   : <==      Total: 1
+2020-02-21 01:11:11.291 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updBlog      : ==>  Preparing: update t_blog set appreciation = ?,commendable=?,content=?,description=?,first_picture=?,flag=?,published=?,recommend=?,share_statement=?,title=?,update_time=?,type_id=?,user_id=?,tag_ids=? where id=? 
+2020-02-21 01:11:11.292 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updBlog      : ==> Parameters: true(Boolean), true(Boolean), ## RDB 总结
+![流程图](https://img-blog.csdnimg.cn/20191213113840933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjg3ODA4,size_16,color_FFFFFF,t_70)
+- RDB是一个非常紧凑的文件
+- RDB在保存RDB文件时父进程唯一需要做的就是fork出一个子进程，接下来的工作全部由子进程来做，父进程不需要再做其他IO操作，所以RDB持久化方式可以最大化Redis的性能
+- 与AOF相比，在恢复大数据集的时候，RDB方式会更快一些
+- 数据丢失风险大
+- RDB需要进程fork子进程来保存数据集到硬盘上，当数据集比较大的时候，fork的过程是非常耗时的，可能会导致Redis在一些毫秒级不能响应客户端操作
+
+## AOF 总结
+![流程图](https://img-blog.csdnimg.cn/20191213111935477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjg3ODA4,size_16,color_FFFFFF,t_70)
+ - AOF文件是一个只进行追加的日志文件
+ - Redis可以在AOF文件体积变得过大时，自动地在后台对AOF进行重写
+ - AOF文件有序地保存了对数据库执行的所有写入操作，这些写入操作以Redis协议的格式保存，因此AOF文件的内容非常容易被人读懂，对文件进行分析也很轻松
+ - 对于相同的数据集来说，AOF文件的体积通常要大于RDB文件的体积
+ - 根据所使用的的fsync策略，AOF的速度可能会慢于RDB
+
+## 总结
+- RDB持久化方式能够在指定的时间间隔，能对你的数据进行快照存储**
+
+- AOF持久化方式记录每次对服务器写的搓澡，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾，Redis还可以对AOF文件进行后台重写，使得AOF文件的体积不至于过大
+
+- 只做缓存：如果你只希望你的数据在服务器运行的时候存在，你也可以不使用任何持久化的方式
+- 同时开启两种持久化方式
+
+ - 在这种情况下，当Redis重启的时候会优先载入AOF文件来恢复原始的数据，因为通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整。
+ - RDB的数据不实的时候，同时使用两者时服务器重启也只会找AOF文件。(String), RDB持久化方式能够在指定的时间间隔，能对你的数据进行快照存储，AOF持久化方式记录每次对服务器写的搓澡，当服务器重启的时候会重新执行这些命令来恢复原始的数据，AOF命令以Redis协议追加保存每次写的操作到文件末尾，Redis还可以对AOF文件进行后台重写，使得AOF文件的体积不至于过大(String), https://unsplash.it/400/250?image=1002(String), 原创(String), true(Boolean), true(Boolean), true(Boolean), Redis的持久化之RDB与AOF总结(String), 2020-02-21 01:11:11.291(Timestamp), 4(Long), 1(Long), 13(String), 3(Long)
+2020-02-21 01:11:11.299 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.updBlog      : <==    Updates: 1
+2020-02-21 01:11:11.308 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.d.b.delBlogAndTagByblogId          : ==>  Preparing: delete from t_blog_tags where blogs_id = ? 
+2020-02-21 01:11:11.308 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.d.b.delBlogAndTagByblogId          : ==> Parameters: 3(Long)
+2020-02-21 01:11:11.310 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.d.b.delBlogAndTagByblogId          : <==    Updates: 1
+2020-02-21 01:11:11.316 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.dao.blogTagsMapper.insBlogAndTag   : ==>  Preparing: insert into t_blog_tags values(?,?) 
+2020-02-21 01:11:11.316 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.dao.blogTagsMapper.insBlogAndTag   : ==> Parameters: 3(Long), 13(Long)
+2020-02-21 01:11:11.319 DEBUG 3056 --- [http-nio-8080-exec-1] c.m.b.dao.blogTagsMapper.insBlogAndTag   : <==    Updates: 1
+2020-02-21 01:11:11.326 DEBUG 3056 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:11:11.326 DEBUG 3056 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:11:11.328 DEBUG 3056 --- [http-nio-8080-exec-3] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:11:11.335 DEBUG 3056 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:11:11.335 DEBUG 3056 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:11:11.336 DEBUG 3056 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:11:11.337 DEBUG 3056 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:11:11.337 DEBUG 3056 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 5(Integer)
+2020-02-21 01:11:11.340 DEBUG 3056 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:11:13.638  INFO 3056 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[3, {}]}
+2020-02-21 01:11:13.640 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:11:13.640 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:11:13.641 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:11:13.644 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:11:13.644 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 13(Long)
+2020-02-21 01:11:13.645 DEBUG 3056 --- [http-nio-8080-exec-2] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:11:13.647  INFO 3056 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:11:13.648  INFO 3056 --- [http-nio-8080-exec-2] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:13:30.058 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:13:30.060 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:13:30.063 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:13:30.069 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-02-21 01:13:30.069 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-02-21 01:13:30.071 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 19
+2020-02-21 01:13:30.073 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:13:30.073 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:13:30.079 DEBUG 3056 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:13:35.864 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:13:35.864 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:13:35.866 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:13:35.869 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-02-21 01:13:35.870 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-02-21 01:13:35.871 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 19
+2020-02-21 01:13:35.873 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:13:35.873 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 5(Long)
+2020-02-21 01:13:35.874 DEBUG 3056 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:13:39.968 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==>  Preparing: select * from t_type 
+2020-02-21 01:13:39.968 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : ==> Parameters: 
+2020-02-21 01:13:39.969 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TypeMapper.listType     : <==      Total: 17
+2020-02-21 01:13:39.972 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.listTag       : ==>  Preparing: select * from t_tag 
+2020-02-21 01:13:39.973 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.listTag       : ==> Parameters: 
+2020-02-21 01:13:39.974 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.listTag       : <==      Total: 19
+2020-02-21 01:13:39.977 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:13:39.977 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 01:13:39.978 DEBUG 3056 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:13:57.990  INFO 3056 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/2', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[2, {}]}
+2020-02-21 01:13:57.992 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:13:57.992 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 2(Long)
+2020-02-21 01:13:57.994 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:13:57.995 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:13:57.995 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:13:57.997 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:13:57.999 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:13:57.999 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 7(Long)
+2020-02-21 01:13:58.001 DEBUG 3056 --- [http-nio-8080-exec-10] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:13:58.003  INFO 3056 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:13:58.003  INFO 3056 --- [http-nio-8080-exec-10] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:23:37.968  INFO 3056 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[4, {}]}
+2020-02-21 01:23:38.016 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:23:38.016 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 01:23:38.026 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:23:38.028 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:23:38.028 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 8(Long)
+2020-02-21 01:23:38.030 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:23:38.036 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:23:38.037 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:23:38.040 DEBUG 3056 --- [http-nio-8080-exec-4] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:23:38.047  INFO 3056 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:23:38.047  INFO 3056 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:23:42.484  INFO 3056 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-21 01:23:42.505  INFO 3056 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-21 01:23:43.609  INFO 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 3056 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:23:43.609 DEBUG 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:23:43.609  INFO 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:23:44.286  INFO 3056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:23:44.287  INFO 3056 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:23:44.288  INFO 3056 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:23:44.426  INFO 3056 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:23:44.427  INFO 3056 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 816 ms
+2020-02-21 01:23:45.103  INFO 3056 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:23:45.127  INFO 3056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:23:45.127  INFO 3056 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 1.553 seconds (JVM running for 1023.088)
+2020-02-21 01:23:45.129  INFO 3056 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-21 01:24:39.301  INFO 3056 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 01:24:39.304  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 01:24:39.321  INFO 3056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2020-02-21 01:24:39.328  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/2', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[2, {}]}
+2020-02-21 01:24:39.332  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-02-21 01:24:39.343  INFO 3056 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-02-21 01:24:39.343 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:24:39.343 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 2(Long)
+2020-02-21 01:24:39.345 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:24:39.352 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:24:39.352 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:24:39.353 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:24:39.356 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:24:39.357 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 7(Long)
+2020-02-21 01:24:39.358 DEBUG 3056 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:24:39.360  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:24:39.360  INFO 3056 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:40:57.000  INFO 9288 --- [restartedMain] com.mzr.blog.BlogApplication             : Starting BlogApplication on LAPTOP-LEBHPPBF with PID 9288 (started by CURRY in D:\个人博客\blog)
+2020-02-21 01:40:57.007 DEBUG 9288 --- [restartedMain] com.mzr.blog.BlogApplication             : Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2020-02-21 01:40:57.007  INFO 9288 --- [restartedMain] com.mzr.blog.BlogApplication             : The following profiles are active: dev
+2020-02-21 01:40:57.115  INFO 9288 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-21 01:40:57.115  INFO 9288 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-21 01:40:59.442  INFO 9288 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-21 01:40:59.471  INFO 9288 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-21 01:40:59.472  INFO 9288 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-02-21 01:40:59.647  INFO 9288 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-21 01:40:59.649  INFO 9288 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2533 ms
+2020-02-21 01:41:01.398  INFO 9288 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-21 01:41:01.456  INFO 9288 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-21 01:41:01.459  INFO 9288 --- [restartedMain] com.mzr.blog.BlogApplication             : Started BlogApplication in 5.834 seconds (JVM running for 7.678)
+2020-02-21 01:41:03.812  INFO 9288 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-21 01:41:03.812  INFO 9288 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-21 01:41:03.828  INFO 9288 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2020-02-21 01:41:03.885  INFO 9288 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[4, {}]}
+2020-02-21 01:41:03.912  INFO 9288 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-21 01:41:04.112  INFO 9288 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-21 01:41:04.124 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:41:04.145 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 01:41:04.174 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:41:04.273 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:41:04.274 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 8(Long)
+2020-02-21 01:41:04.276 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:41:04.281 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:41:04.282 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:41:04.285 DEBUG 9288 --- [http-nio-8080-exec-1] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:41:04.287  INFO 9288 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:41:04.288  INFO 9288 --- [http-nio-8080-exec-1] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:41:16.206  INFO 9288 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-02-21 01:41:16.357 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:41:16.357 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:41:16.362 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:41:16.364 DEBUG 9288 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:41:16.364 DEBUG 9288 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-02-21 01:41:16.375 DEBUG 9288 --- [http-nio-8080-exec-3] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:41:16.381 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId LIMIT 0,? 
+2020-02-21 01:41:16.382 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-02-21 01:41:16.386 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-02-21 01:41:16.391 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id LIMIT 0,? 
+2020-02-21 01:41:16.391 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-02-21 01:41:16.395 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-02-21 01:41:16.398 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-02-21 01:41:16.398 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-02-21 01:41:16.401 DEBUG 9288 --- [http-nio-8080-exec-3] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 5
+2020-02-21 01:41:16.402  INFO 9288 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:41:16.402  INFO 9288 --- [http-nio-8080-exec-3] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-02-21 01:41:17.268  INFO 9288 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-02-21 01:41:17.277 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:41:17.277 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:41:17.279 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:41:17.279 DEBUG 9288 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:41:17.280 DEBUG 9288 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-02-21 01:41:17.291 DEBUG 9288 --- [http-nio-8080-exec-4] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:41:17.297 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId LIMIT 0,? 
+2020-02-21 01:41:17.297 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-02-21 01:41:17.299 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-02-21 01:41:17.302 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id LIMIT 0,? 
+2020-02-21 01:41:17.302 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-02-21 01:41:17.310 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-02-21 01:41:17.314 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-02-21 01:41:17.314 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-02-21 01:41:17.316 DEBUG 9288 --- [http-nio-8080-exec-4] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 5
+2020-02-21 01:41:17.317  INFO 9288 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:41:17.317  INFO 9288 --- [http-nio-8080-exec-4] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-02-21 01:41:28.678  INFO 9288 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.index', args=[1, {}]}
+2020-02-21 01:41:28.683 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog LEFT JOIN t_type ON t_blog.type_id = t_type.id LEFT JOIN t_user ON t_blog.user_id = t_user.id 
+2020-02-21 01:41:28.683 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : ==> Parameters: 
+2020-02-21 01:41:28.685 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.listBlog_COUNT   : <==      Total: 1
+2020-02-21 01:41:28.686 DEBUG 9288 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==>  Preparing: select t_blog.id, t_blog.appreciation, t_blog.commendable, t_blog.create_time, t_blog.description, t_blog.first_picture, t_blog.flag, t_blog.published, t_blog.recommend, t_blog.share_statement, t_blog.title, t_blog.update_time, t_blog.views, type_id, user_id, t_type.id, t_type.name, t_user.id,t_user.avatar,t_user.nickname,t_user.email from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id order by t_blog.update_time desc LIMIT ? 
+2020-02-21 01:41:28.686 DEBUG 9288 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : ==> Parameters: 6(Integer)
+2020-02-21 01:41:28.699 DEBUG 9288 --- [http-nio-8080-exec-6] com.mzr.blog.dao.BlogMapper.listBlog     : <==      Total: 5
+2020-02-21 01:41:28.707 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==>  Preparing: select t.`name`,IFNULL(typeCount,0) as count from t_type as t left join(select type_id as typeId,count(*) as typeCount from t_blog group by type_id)as b on t.id=b.typeId LIMIT 0,? 
+2020-02-21 01:41:28.708 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : ==> Parameters: 6(Integer)
+2020-02-21 01:41:28.716 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTypeTop  : <==      Total: 6
+2020-02-21 01:41:28.719 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==>  Preparing: select tt.`name`,IFNULL(tagCount,0) as count from t_tag as tt left join(select tags_id,count(*) as tagCount from t_blog_tags GROUP BY tags_id)as tbt on tbt.tags_id = tt.id LIMIT 0,? 
+2020-02-21 01:41:28.719 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : ==> Parameters: 10(Integer)
+2020-02-21 01:41:28.720 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.blog.dao.BlogMapper.BlogWithTagTop   : <==      Total: 10
+2020-02-21 01:41:28.722 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : ==>  Preparing: select * from t_blog where recommend = true order by update_time desc LIMIT 0,? 
+2020-02-21 01:41:28.723 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : ==> Parameters: 8(Integer)
+2020-02-21 01:41:28.725 DEBUG 9288 --- [http-nio-8080-exec-6] c.m.b.d.BlogMapper.findBlogByRecommend   : <==      Total: 5
+2020-02-21 01:41:28.725  INFO 9288 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:41:28.725  INFO 9288 --- [http-nio-8080-exec-6] com.mzr.blog.aspect.LogAspect            : Result : index
+2020-02-21 01:41:30.740  INFO 9288 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[3, {}]}
+2020-02-21 01:41:30.749 DEBUG 9288 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:41:30.749 DEBUG 9288 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:41:30.752 DEBUG 9288 --- [http-nio-8080-exec-7] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:41:30.760 DEBUG 9288 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:41:30.760 DEBUG 9288 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 13(Long)
+2020-02-21 01:41:30.762 DEBUG 9288 --- [http-nio-8080-exec-7] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:41:30.765  INFO 9288 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:41:30.766  INFO 9288 --- [http-nio-8080-exec-7] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:41:34.607  INFO 9288 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[3, {}]}
+2020-02-21 01:41:34.609 DEBUG 9288 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:41:34.609 DEBUG 9288 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 3(Long)
+2020-02-21 01:41:34.611 DEBUG 9288 --- [http-nio-8080-exec-8] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:41:34.614 DEBUG 9288 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:41:34.614 DEBUG 9288 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 13(Long)
+2020-02-21 01:41:34.615 DEBUG 9288 --- [http-nio-8080-exec-8] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:41:34.617  INFO 9288 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:41:34.617  INFO 9288 --- [http-nio-8080-exec-8] com.mzr.blog.aspect.LogAspect            : Result : blog
+2020-02-21 01:41:38.067  INFO 9288 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Request : RequestLog{url='http://localhost:8080/blog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.mzr.blog.controller.IndexController.blog', args=[4, {}]}
+2020-02-21 01:41:38.075 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==>  Preparing: select t_blog.*,t_type.*,t_user.* from t_blog left join t_type on t_blog.type_id = t_type.id left join t_user on t_blog.user_id = t_user.id where t_blog.id = ? 
+2020-02-21 01:41:38.076 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : ==> Parameters: 4(Long)
+2020-02-21 01:41:38.079 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.BlogMapper.getBlog      : <==      Total: 1
+2020-02-21 01:41:38.084 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:41:38.084 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 8(Long)
+2020-02-21 01:41:38.087 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:41:38.091 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==>  Preparing: select * from t_tag where id = ? 
+2020-02-21 01:41:38.091 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : ==> Parameters: 3(Long)
+2020-02-21 01:41:38.092 DEBUG 9288 --- [http-nio-8080-exec-9] com.mzr.blog.dao.TagMapper.findTag       : <==      Total: 1
+2020-02-21 01:41:38.094  INFO 9288 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : -------------doAfter------------
+2020-02-21 01:41:38.095  INFO 9288 --- [http-nio-8080-exec-9] com.mzr.blog.aspect.LogAspect            : Result : blog

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>博客后台管理系统</title>
+	<link rel="stylesheet" href="../../static/Semantic-UI-CSS-master/semantic.min.css">
+	<link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+  <!--导航-->
+  <nav th:replace="admin/_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+    <div class="ui container">
+      <div class="ui inverted secondary stackable menu">
+        <h2 class="ui teal header item">博客后台管理</h2>
+        <a href="#" class="active m-item item m-mobile-hide"><i class=" home icon"></i>管理</a>
+        <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+        <a href="#" class="m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+        <div class="right m-item m-mobile-hide menu">
+        	<div class="ui dropdown item">
+        		<div class="text">
+        			<img class="ui avatar image" src="https://picsum.photos/seed/picsum/100/100" />
+					<span>Ryan</span>
+        		</div>
+        		<i class="dropdown icon"></i>
+        		<div class="menu">
+        			<a href="#" class="item">注销</a>
+        		</div>
+        	</div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+      <i class="sidebar icon"></i>
+    </a>
+  </nav>
+	<div class="ui attached pointing menu">
+		<div class="ui container">
+			<div class="right menu">
+				<a th:href="@{/admin/blogs/input}" href="#" class="item">发布</a>
+				<a th:href="@{/admin/blogs}" href="#" class="teal active item">列表</a>
+			</div>
+		</div>
+	</div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big">
+  	<div class="ui container">
+  		<div action="#" class="ui secondary segment form">
+			<input type="hidden" name="pageNum">
+  			<div class="inline fields" style="padding-left: 10px;">
+  				<div class="filed">
+  					<input type="text" name="title" placeholder="标题" />
+  				</div>
+  				<div class="filed">
+						<div class="ui type selection dropdown">
+							<input type="hidden" name="type" />
+							<i class="dropdown icon"></i>
+							<div class="default text">分类</div>
+							<div class="menu">
+								<div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
+								<!--/*-->
+								<div class="item" data-value="2">开发者手册</div>
+								<!--*/-->
+							</div>
+						</div>
+						<button id="clear-btn" class="ui compact button">清除</button>
+  				</div>
+  				<div class="filed">
+  					<div class="ui checkbox">
+  						<input type="checkbox" name="recommend" id="recommend" />
+  						<label for="recommend">推荐</label>
+  					</div>
+  				</div>
+  				<div class="filed">
+  					<button class="ui blue basic button" id="search-btn">
+  						<i class="search icon"></i>搜索
+  					</button>
+  				</div>
+  			</div>
+  		</div>
+
+		<div id="table-container">
+			<div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+				<i class="close icon"></i>
+				<div class="header">提示：</div>
+				<p th:text="${message}">恭喜，操作成功！</p>
+			</div>
+
+  		<table th:fragment="blogList" class="ui blue celled table">
+  			<thead>
+  				<tr>
+  					<th></th>
+  					<th>标题</th>
+  					<th>标记</th>
+  					<th>类型</th>
+  					<th>推荐</th>
+					<th>发布 / 草稿</th>
+  					<th>更新时间</th>
+  					<th>操作</th>
+  				</tr>
+  			</thead>
+  			<tbody>
+				<tr th:each="blog,iterStat : ${blogs.list}">
+					<td th:text="${blog.id}">1</td>
+					<td th:text="${blog.title}">刻意练习清单</td>
+					<td th:text="${blog.flag}">学习日志</td>
+					<td th:text="${blog.type.name}">认知升级</td>
+					<td th:text="${blog.recommend} ? '是':'否'">是</td>
+					<td th:text="${blog.published} ? '发布':'草稿'">草稿</td>
+					<td th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-02-10 09:45</td>
+					<td>
+						<a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui blue basic button">编辑</a>
+						<a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="ui red basic button">删除</a>
+					</td>
+				</tr>
+  			</tbody>
+  			<tfoot>
+				<tr>
+					<th colspan="8">
+						<div class="ui center aligned">
+							<span>当前第 <span th:text="${blogs.pageNum}"></span> 页, 总 <span th:text="${blogs.pages}"></span> 页, 共 <span th:text="${blogs.total}"></span> 条记录</span>
+						</div>
+						<div class="ui pagination menu">
+							<div class="item"><a th:href="@{/admin/blogs}">首页</a></div>
+							<a th:href="@{/admin/blogs(pageNum=${blogs.hasPreviousPage}?${blogs.prePage}:1)}"  aria-label="Previous" class=" item">上一页</a>
+							<a th:href="@{/admin/blogs(pageNum=${blogs.hasNextPage}?${blogs.nextPage}:${blogs.pages})}" aria-label="Next" class=" item">下一页</a>
+							<div class="item"><a th:href="@{/admin/blogs(pageNum=${blogs.pages})}">尾页</a></div>
+							<!--<a onclick="page(this)" th:attr="data-page=${blogs.prePage}" aria-label="Previous" class="item ">上一页</a>-->
+							<!--<a onclick="page(this)" th:attr="data-page=${blogs.nextPage}" aria-label="Next" class=" item ">下一页</a>-->
+						</div>
+						<a href="#" th:href="@{/admin/blogs/input}" class="ui right floated teal basic button">新增</a>
+					</th>
+				</tr>
+  				<!--<tr>-->
+  					<!--<th colspan="6">-->
+  						<!--<div class="ui pagination menu">-->
+				        <!--<a class="icon item">-->
+				          <!--<i class="left chevron icon"></i>-->
+				        <!--</a>-->
+				        <!--<a class="item">1</a>-->
+				        <!--<a class="item">2</a>-->
+				        <!--<a class="item">3</a>-->
+				        <!--<a class="icon item">-->
+				          <!--<i class="right chevron icon"></i>-->
+				        <!--</a>-->
+			      <!--</div>-->
+			      <!--<a href="#" class="ui right floated blue basic button">新增</a>-->
+  					<!--</th>-->
+  				<!--</tr>-->
+  			</tfoot>
+  		</table>
+
+
+  	</div>
+  </div>
+  </div>
+
+
+  <br>
+  <br>
+  <!--底部footer-->
+  <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+	  <div class="ui center aligned container">
+		  <div class="ui inverted divided stackable grid">
+			  <div class="three wide column">
+				  <div class="ui inverted link list">
+					  <div class="item">
+						  <img src="../../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
+					  </div>
+				  </div>
+			  </div>
+			  <div class="three wide column">
+				  <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
+				  <div class="ui inverted link list">
+					  <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+					  <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+					  <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+				  </div>
+			  </div>
+			  <div class="three wide column">
+				  <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+				  <div class="ui inverted link list">
+					  <a href="#" class="item m-text-thin">Email：hanma0426@163.com</a>
+					  <a href="#" class="item m-text-thin">QQ：929507469</a>
+				  </div>
+			  </div>
+			  <div class="seven wide column">
+				  <h4 class="ui inverted header m-text-thin m-text-spaced ">MyBlog</h4>
+				  <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+			  </div>
+		  </div>
+		  <div class="ui inverted section divider"></div>
+		  <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2019 - 2020 Designed by Ryan</p>
+	  </div>
+
+  </footer>
+
+  <!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
+  <script src="../../static/js/jquery-3.4.1.min.js"></script>
+  <script src="../../static/Semantic-UI-CSS-master/semantic.min.js"></script>
+  <!--/*/</th:block>/*/-->
+
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+		
+	$('.ui.dropdown').dropdown({
+		on : 'hover'
+	});
+
+	//消息提示关闭初始化
+	$('.message .close')
+			.on('click', function () {
+				$(this)
+						.closest('.message')
+						.transition('fade');
+			});
+
+	$('#clear-btn')
+			.on('click', function() {
+				$('.ui.type.dropdown')
+						.dropdown('clear')
+				;
+			})
+	;
+
+	function page(obj) {
+		$("[name='pageNum']").val($(obj).data("pageNum"));
+		loaddata();
+	}
+
+	$("#search-btn").click(function () {
+		$("[name='pageNum']").val(0);
+		loaddata();
+	});
+
+	function loaddata() {
+		$("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
+			title : $("[name='title']").val(),
+			typeId : $("[name='type']").val(),
+			recommend : $("[name='recommend']").prop('checked'),
+			pageNum : $("[name='pageNum']").val()
+		});
+	}
+
+  </script>
+</body>
+</html>

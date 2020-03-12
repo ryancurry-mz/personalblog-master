@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzr.blog.dao.UserMapper">
+
+  <resultMap id="BaseResultMap" type="com.mzr.blog.pojo.User">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+
+  <!--<select id="findByUsernameAndPassword" parameterType="String" resultType="BaseResultMap">-->
+    <!--select * from t_user-->
+    <!--where username=#{username}-->
+  <!--</select>-->
+
+
+  <!--<sql id="Base_Column_List">-->
+    <!--id, avatar, create_time, email, nickname, password, `type`, update_time, username-->
+  <!--</sql>-->
+
+  <!--&lt;!&ndash; 根据用户名和密码查询用户 &ndash;&gt;-->
+  <!--<select id="findByUsernameAndPassword" parameterType="Integer" resultType="com.mzr.blog.pojo.User">-->
+    <!--select-->
+    <!--<include refid="Base_Column_List"/>-->
+    <!--from t_user-->
+    <!--where username = #{username,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}-->
+  <!--</select>-->
+
+  <insert id="insert" parameterType="com.mzr.blog.pojo.User">
+    insert into t_user (id, avatar, create_time, 
+      email, nickname, password, 
+      type, update_time, username
+      )
+    values (#{id,jdbcType=BIGINT}, #{avatar,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{username,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mzr.blog.pojo.User">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
